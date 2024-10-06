@@ -1,21 +1,16 @@
+import org.jetbrains.changelog.Changelog
+
 plugins {
 	id 'fabric-loom' version '1.7-SNAPSHOT'
-	id 'maven-publish'
+	id "me.modmuss50.mod-publish-plugin" version "0.7.4"
+	id 'org.jetbrains.changelog' version '2.+'
 }
 
-version = project.mod_version
+archivesBaseName = project.archives_base_name
+version = project.mod_version + "+" + project.minecraft_version
 group = project.maven_group
 
-base {
-	archivesName = project.archives_base_name
-}
-
 repositories {
-	// Add repositories to retrieve artifacts from in here.
-	// You should only use this when depending on other mods because
-	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
-	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
-	// for more information about repositories.
 }
 
 loom {
@@ -41,7 +36,35 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	
+}
+
+
+publishMods {
+	file = remapJar.archiveFile
+	type = STABLE
+	changelog = fetchChangelog()
+
+	displayName = "Instant Feedback ${version.get()}"
+	modLoaders.add("fabric")
+	modLoaders.add("quilt")
+
+	curseforge {
+		accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
+		projectId = "1116683"
+		minecraftVersions.add(project.curseforge_minecraft_version)
+		requires("fabric-api")
+	}
+	modrinth {
+		accessToken = providers.environmentVariable("MODRINTH_TOKEN")
+		projectId = "pcDsJNzK"
+		minecraftVersions.add(project.minecraft_version)
+		requires("fabric-api")
+	}
+	github {
+		accessToken = providers.environmentVariable("GITHUB_TOKEN")
+		repository = providers.environmentVariable("GITHUB_REPOSITORY").getOrElse("DrexHD/dryrun")
+		commitish = providers.environmentVariable("GITHUB_REF_NAME").getOrElse("dryrun")
+	}
 }
 
 processResources {
@@ -72,20 +95,14 @@ jar {
 	}
 }
 
-// configure the maven publication
-publishing {
-	publications {
-		create("mavenJava", MavenPublication) {
-			artifactId = project.archives_base_name
-			from components.java
-		}
-	}
-
-	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
-	repositories {
-		// Add repositories to publish to here.
-		// Notice: This block does NOT have the same function as the block in the top level.
-		// The repositories here will be used for publishing your artifact, not for
-		// retrieving dependencies.
+private String fetchChangelog() {
+	def log = getChangelog.changelog.get()
+	if (log.has(project.mod_version)) {
+		return log.renderItem(
+				log.get(project.mod_version).withHeader(false),
+				Changelog.OutputType.MARKDOWN
+		)
+	} else {
+		return ""
 	}
 }
