@@ -6,5 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Block loot tables
+
+### Fixed
+- Mod icon
+
 ## [1.0.0] - 2024-10-07
 Initial release

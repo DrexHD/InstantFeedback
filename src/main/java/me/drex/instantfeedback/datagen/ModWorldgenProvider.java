@@ -7,8 +7,8 @@ import net.minecraft.core.registries.Registries;
 
 import java.util.concurrent.CompletableFuture;
 
-public class WorldgenProvider extends FabricDynamicRegistryProvider {
-    public WorldgenProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+public class ModWorldgenProvider extends FabricDynamicRegistryProvider {
+    public ModWorldgenProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 

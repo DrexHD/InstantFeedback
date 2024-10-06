@@ -12,7 +12,8 @@ public class InstantFeedbackDataGenerator implements DataGeneratorEntrypoint {
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
-        pack.addProvider(WorldgenProvider::new);
+        pack.addProvider(ModWorldgenProvider::new);
+        pack.addProvider(ModLootTableProvider::new);
     }
 
     @Override
