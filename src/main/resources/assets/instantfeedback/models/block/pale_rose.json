@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "instantfeedback:block/pale_rose"
+  }
+}

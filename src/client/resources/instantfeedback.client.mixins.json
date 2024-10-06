@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "package": "me.drex.instantfeedback.mixin.client",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "CreakingModelMixin",
+    "CreakingRendererMixin",
+    "CreakingRenderStateMixin",
+    "LevelRenderMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "HangingMossBlockMixin"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "instantfeedback:block/tall_pale_bush_bottom"
+  }
+}

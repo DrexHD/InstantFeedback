@@ -1,0 +1,33 @@
+{
+  "ambientocclusion": false,
+  "parent": "block/block",
+  "textures": {
+    "particle": "instantfeedback:block/carved_pale_pumpkin",
+    "glow": "instantfeedback:block/carved_pale_pumpkin_eyes",
+    "front": "instantfeedback:block/carved_pale_pumpkin",
+    "side": "instantfeedback:block/pale_pumpkin_side",
+    "top": "instantfeedback:block/pale_pumpkin_top"
+  },
+  "elements": [
+    {
+      "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "down":  { "texture": "#top", "cullface": "down" },
+        "up":    { "texture": "#top", "cullface": "up" },
+        "north": { "texture": "#front", "cullface": "north" },
+        "south": { "texture": "#side", "cullface": "south" },
+        "west":  { "texture": "#side", "cullface": "west" },
+        "east":  { "texture": "#side", "cullface": "east" }
+      }
+    },
+    {
+      "light_emission": 15,
+      "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "north": { "texture": "#glow", "cullface": "north" }
+      }
+    }
+  ]
+}

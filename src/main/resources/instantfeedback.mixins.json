@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"package": "me.drex.instantfeedback.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"CreakingMixin",
+		"biome.OverworldBiomesMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

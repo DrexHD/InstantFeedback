@@ -1,0 +1,36 @@
+{
+	"schemaVersion": 1,
+	"id": "instantfeedback",
+	"version": "${version}",
+	"name": "InstantFeedback",
+	"description": "Implements the most requested features from feedback.minecraft.net",
+	"authors": [
+		"Drex"
+	],
+	"license": "MIT",
+	"icon": "assets/instantfeedback/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"me.drex.instantfeedback.InstantFeedback"
+		],
+		"client": [
+			"me.drex.instantfeedback.InstantFeedbackClient"
+		],
+		"fabric-datagen": [
+			"me.drex.instantfeedback.datagen.InstantFeedbackDataGenerator"
+		]
+	},
+	"mixins": [
+		"instantfeedback.mixins.json",
+		{
+			"config": "instantfeedback.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.5",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}

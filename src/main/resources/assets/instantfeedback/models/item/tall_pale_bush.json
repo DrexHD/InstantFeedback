@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "instantfeedback:block/tall_pale_bush_top"
+  }
+}
