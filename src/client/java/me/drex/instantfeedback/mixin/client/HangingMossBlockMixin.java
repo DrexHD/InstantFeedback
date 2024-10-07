@@ -26,11 +26,11 @@ public abstract class HangingMossBlockMixin {
         at = @At("HEAD")
     )
     public void addParticle(BlockState blockState, Level level, BlockPos blockPos, RandomSource randomSource, CallbackInfo ci) {
-        if (randomSource.nextInt(10) == 0) {
+        if (randomSource.nextInt(100) == 0) {
             if (blockState.getValue(TIP)) {
                 level.addParticle(
                     InstantFeedback.CREAKING_EYES,
-                    blockPos.getX() + .5, blockPos.getY() + .5, blockPos.getZ() + .5,
+                    blockPos.getX() + .5, blockPos.getY() - .5, blockPos.getZ() + .5,
                     0.0,
                     0.0,
                     0.0
