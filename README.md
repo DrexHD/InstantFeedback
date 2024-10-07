@@ -5,10 +5,12 @@ A snapshot mod implementing features requested on [Let's talk about the Pale Gar
 - Biome fog. The fog gets denser during night!
 - Pale pumpkins have been added in two varations. Regular and "carved"
 - More (chaotic) vegetation (pale flower, tall and small bushes, pumpkins...)
+- Fallen trees
 - Ambient particles that look like creaking eyes
 - Removed mob spawning (and buffed creaking)
 
 ![pale garden during night](https://cdn.modrinth.com/data/cached_images/30053049b3f5173cdd092ade9cf8650427463fed.png)
+![pale garden during day](https://github.com/user-attachments/assets/f91331d9-ccad-411c-bb40-e11e4d99a2d2)
 
 ## Creaking
 - Increased movement speed +50%
