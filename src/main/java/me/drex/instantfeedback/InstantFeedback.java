@@ -11,12 +11,10 @@ import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.data.worldgen.WinterDropBiomes;
-import net.minecraft.data.worldgen.features.VegetationFeatures;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.GenerationStep;
-import net.minecraft.world.level.levelgen.feature.trunkplacers.DarkOakTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,28 +34,28 @@ public class InstantFeedback implements ModInitializer {
         ModBlocks.initialize();
         ModItems.initialize();
         BiomeModifications.create(ResourceLocation.fromNamespaceAndPath(MOD_ID, "pale_garden_remove_spawn"))
-            .add(ModificationPhase.REMOVALS, context -> context.getBiomeKey() == WinterDropBiomes.PALE_GARDEN, context -> {
+            .add(ModificationPhase.REMOVALS, context -> context.getBiomeKey() == Biomes.PALE_GARDEN, context -> {
                 context.getSpawnSettings().clearSpawns();
             });
 
         BiomeModifications.create(ResourceLocation.fromNamespaceAndPath(MOD_ID, "pale_garden_replace_vegetation"))
-            .add(ModificationPhase.REPLACEMENTS, context -> context.getBiomeKey() == WinterDropBiomes.PALE_GARDEN, context -> {
+            .add(ModificationPhase.REPLACEMENTS, context -> context.getBiomeKey() == Biomes.PALE_GARDEN, context -> {
                 context.getGenerationSettings().removeFeature(VegetationPlacements.PALE_GARDEN_VEGETATION);
                 context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModVegetationPlacements.PALE_GARDEN_VEGETATION);
             });
 
         BiomeModifications.addFeature(
-            context -> context.getBiomeKey() == WinterDropBiomes.PALE_GARDEN,
+            context -> context.getBiomeKey() == Biomes.PALE_GARDEN,
             GenerationStep.Decoration.VEGETAL_DECORATION,
             ModVegetationPlacements.PATCH_PALE_PUMPKIN
         );
         BiomeModifications.addFeature(
-            context -> context.getBiomeKey() == WinterDropBiomes.PALE_GARDEN,
+            context -> context.getBiomeKey() == Biomes.PALE_GARDEN,
             GenerationStep.Decoration.VEGETAL_DECORATION,
             ModVegetationPlacements.PILE_PALE_LEAVES
         );
         BiomeModifications.addFeature(
-            context -> context.getBiomeKey() == WinterDropBiomes.PALE_GARDEN,
+            context -> context.getBiomeKey() == Biomes.PALE_GARDEN,
             GenerationStep.Decoration.VEGETAL_DECORATION,
             ModVegetationPlacements.PALE_VEGETATION
         );

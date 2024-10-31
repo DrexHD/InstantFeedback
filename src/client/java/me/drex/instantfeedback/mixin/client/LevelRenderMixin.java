@@ -6,8 +6,8 @@ import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.core.BlockPos;
-import net.minecraft.data.worldgen.WinterDropBiomes;
 import net.minecraft.util.Mth;
+import net.minecraft.world.level.biome.Biomes;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -37,7 +37,7 @@ public abstract class LevelRenderMixin {
     )
     public float shortFogDistance(float original, @Local(argsOnly = true) Camera camera) {
         float fogDistance = original;
-        if (this.minecraft.level.getBiome(BlockPos.containing(camera.getPosition())).is(WinterDropBiomes.PALE_GARDEN)) {
+        if (this.minecraft.level.getBiome(BlockPos.containing(camera.getPosition())).is(Biomes.PALE_GARDEN)) {
             boolean night = this.minecraft.level.isNight();
             fogDistance = Math.min(original, night ? 48 : 96);
         }
@@ -71,7 +71,7 @@ public abstract class LevelRenderMixin {
         index = 4
     )
     public boolean enableFog(boolean original, @Local(argsOnly = true) Camera camera) {
-        if (this.minecraft.level.getBiome(BlockPos.containing(camera.getPosition())).is(WinterDropBiomes.PALE_GARDEN)) {
+        if (this.minecraft.level.getBiome(BlockPos.containing(camera.getPosition())).is(Biomes.PALE_GARDEN)) {
             return true;
         }
 
