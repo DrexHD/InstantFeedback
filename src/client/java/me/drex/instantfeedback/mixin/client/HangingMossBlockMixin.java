@@ -26,7 +26,7 @@ public abstract class HangingMossBlockMixin {
         at = @At("HEAD")
     )
     public void addParticle(BlockState blockState, Level level, BlockPos blockPos, RandomSource randomSource, CallbackInfo ci) {
-        if (randomSource.nextInt(100) == 0) {
+        if (randomSource.nextInt(100) == 0 && level.isNight()) {
             if (blockState.getValue(TIP)) {
                 level.addParticle(
                     InstantFeedback.CREAKING_EYES,

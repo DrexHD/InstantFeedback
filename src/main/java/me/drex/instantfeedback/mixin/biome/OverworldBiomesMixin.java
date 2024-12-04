@@ -26,15 +26,4 @@ public class OverworldBiomesMixin {
         return !pale;
     }
 
-    @WrapOperation(
-        method = "darkForest",
-        at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/world/level/biome/BiomeSpecialEffects$Builder;foliageColorOverride(I)Lnet/minecraft/world/level/biome/BiomeSpecialEffects$Builder;"
-        )
-    )
-    private static BiomeSpecialEffects.Builder addAmbientParticle(BiomeSpecialEffects.Builder builder, int i, Operation<BiomeSpecialEffects.Builder> original) {
-        return original.call(builder, i).ambientParticle(new AmbientParticleSettings(InstantFeedback.CREAKING_EYES, .1F));
-    }
-
 }
