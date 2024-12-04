@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Fixed
 - Ambient particles spawning during daytime
+- Update item model format to 1.21.4
 
 ## [1.2.0] - 2024-10-31
 ### Removed
