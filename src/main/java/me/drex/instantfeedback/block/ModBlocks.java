@@ -8,6 +8,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -17,7 +18,6 @@ import net.minecraft.world.level.material.PushReaction;
 
 import java.util.function.Function;
 
-// TODO loot
 public class ModBlocks {
 
     public static final Block PALE_PUMPKIN = register(
@@ -46,7 +46,7 @@ public class ModBlocks {
         "pale_rose",
         properties -> new FlowerBlock(MobEffects.WEAKNESS, 9.0F, properties),
         BlockBehaviour.Properties.of()
-            .mapColor(MapColor.PLANT)
+            .mapColor(DyeColor.WHITE)
             .noCollission()
             .instabreak()
             .sound(SoundType.GRASS)
@@ -57,7 +57,7 @@ public class ModBlocks {
         "pale_bush",
         DeadBushBlock::new,
         BlockBehaviour.Properties.of()
-            .mapColor(MapColor.WOOD)
+            .mapColor(MapColor.TERRACOTTA_BROWN)
             .replaceable()
             .noCollission()
             .instabreak()
@@ -70,7 +70,7 @@ public class ModBlocks {
         "tall_pale_bush",
         TallFlowerBlock::new,
         BlockBehaviour.Properties.of()
-            .mapColor(MapColor.PLANT)
+            .mapColor(MapColor.TERRACOTTA_BROWN)
             .noCollission()
             .instabreak()
             .sound(SoundType.GRASS)

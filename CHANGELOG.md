@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Improve map colors
+
 ## [1.3.0] - 2024-12-12
 ### Added
 - Items to vanilla item groups (@cassiancc)
