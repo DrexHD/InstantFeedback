@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "instantfeedback:block/pale_rose"
+    "model": "instantfeedback:item/pale_rose"
   }
 }
