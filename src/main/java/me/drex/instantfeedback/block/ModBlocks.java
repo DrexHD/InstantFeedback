@@ -71,6 +71,7 @@ public class ModBlocks {
         TallFlowerBlock::new,
         BlockBehaviour.Properties.of()
             .mapColor(MapColor.TERRACOTTA_BROWN)
+            .replaceable()
             .noCollission()
             .instabreak()
             .sound(SoundType.GRASS)

@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Improve map colors
 
+### Fixed
+- Enderman holdable block tag
+- Block mineable tools
+- Replaceable blocks
+
 ## [1.3.0] - 2024-12-12
 ### Added
 - Items to vanilla item groups (@cassiancc)
