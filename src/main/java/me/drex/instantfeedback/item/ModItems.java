@@ -2,13 +2,16 @@ package me.drex.instantfeedback.item;
 
 import me.drex.instantfeedback.InstantFeedback;
 import me.drex.instantfeedback.block.ModBlocks;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 
 import java.util.function.BiFunction;
@@ -24,6 +27,14 @@ public class ModItems {
     public static final Item TALL_PALE_BUSH = registerBlock(ModBlocks.TALL_PALE_BUSH);
 
     public static void initialize() {
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.NATURAL_BLOCKS)
+                .register((itemGroup) -> {
+                    itemGroup.addAfter(Items.JACK_O_LANTERN, PALE_PUMPKIN);
+                    itemGroup.addAfter(PALE_PUMPKIN, CARVED_PALE_PUMPKIN);
+                    itemGroup.addAfter(Items.OPEN_EYEBLOSSOM, PALE_ROSE);
+                    itemGroup.addAfter(Items.PALE_HANGING_MOSS, PALE_BUSH);
+                    itemGroup.addAfter(PALE_BUSH, TALL_PALE_BUSH);
+                });
     }
 
 
