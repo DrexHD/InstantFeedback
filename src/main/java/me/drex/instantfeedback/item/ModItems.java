@@ -13,6 +13,7 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 
 import java.util.function.BiFunction;
 import java.util.function.Function;
@@ -25,6 +26,7 @@ public class ModItems {
     public static final Item PALE_ROSE = registerBlock(ModBlocks.PALE_ROSE);
     public static final Item PALE_BUSH = registerBlock(ModBlocks.PALE_BUSH);
     public static final Item TALL_PALE_BUSH = registerBlock(ModBlocks.TALL_PALE_BUSH);
+    public static final Item CERULEAN_FROGLIGHT = registerBlock(ModBlocks.CERULEAN_FROGLIGHT);
 
     public static void initialize() {
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.NATURAL_BLOCKS)
@@ -34,6 +36,7 @@ public class ModItems {
                     itemGroup.addAfter(Items.OPEN_EYEBLOSSOM, PALE_ROSE);
                     itemGroup.addAfter(Items.PALE_HANGING_MOSS, PALE_BUSH);
                     itemGroup.addAfter(PALE_BUSH, TALL_PALE_BUSH);
+                    itemGroup.addAfter(Blocks.PEARLESCENT_FROGLIGHT, CERULEAN_FROGLIGHT);
                 });
     }
 

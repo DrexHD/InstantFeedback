@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "CreakingMixin",
+    "FrogMixin",
     "biome.OverworldBiomesMixin",
     "snow_golem.SnowGolemMixin"
   ],
