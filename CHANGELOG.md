@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.0] - 2024-12-13
+### Added
+- Dark Frogs (@cassiancc)
+- Cerulean Froglights (@cassiancc)
+
 ## [1.4.0] - 2024-12-12
 ### Added
 - Contact information
