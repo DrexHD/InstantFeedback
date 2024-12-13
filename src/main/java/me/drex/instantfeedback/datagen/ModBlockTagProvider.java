@@ -25,16 +25,21 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         this.getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_AXE)
             .add(ModBlocks.PALE_PUMPKIN)
-            .add(ModBlocks.CARVED_PALE_PUMPKIN);
+            .add(ModBlocks.CARVED_PALE_PUMPKIN).add(ModBlocks.PALE_BUSH, ModBlocks.TALL_PALE_BUSH);
+
         this.getOrCreateTagBuilder(BlockTags.SWORD_EFFICIENT)
             .add(ModBlocks.PALE_PUMPKIN)
-            .add(ModBlocks.CARVED_PALE_PUMPKIN);
+            .add(ModBlocks.CARVED_PALE_PUMPKIN)
+            .add(ModBlocks.PALE_BUSH, ModBlocks.TALL_PALE_BUSH);
 
         this.getOrCreateTagBuilder(BlockTags.BEE_ATTRACTIVE)
             .add(ModBlocks.PALE_ROSE);
 
         this.getOrCreateTagBuilder(BlockTags.SMALL_FLOWERS)
                 .add(ModBlocks.PALE_ROSE);
+
+        this.getOrCreateTagBuilder(BlockTags.REPLACEABLE_BY_TREES)
+                .add(ModBlocks.PALE_BUSH, ModBlocks.TALL_PALE_BUSH);
 
         FabricTagBuilder builder = this.getOrCreateTagBuilder(BlockTags.REPLACEABLE);
         wrapperLookup.lookupOrThrow(Registries.BLOCK)
