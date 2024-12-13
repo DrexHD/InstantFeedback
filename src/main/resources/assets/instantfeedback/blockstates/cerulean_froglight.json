@@ -1,1 +1,7 @@
-{"variants":{"":{"model":"instantfeedback:block/cerulean_froglight"}}}
+{
+  "variants": {
+    "": {
+      "model": "instantfeedback:block/cerulean_froglight"
+    }
+  }
+}

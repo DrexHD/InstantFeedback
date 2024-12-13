@@ -10,7 +10,7 @@ import net.minecraft.world.entity.animal.FrogVariant;
 import static me.drex.instantfeedback.InstantFeedback.MOD_ID;
 
 public class ModFrogs {
-    public static ResourceKey<FrogVariant> DARK = createKey("dark");
+    public static final ResourceKey<FrogVariant> DARK = createKey("dark");
     public static void inititalize() {
         register(BuiltInRegistries.FROG_VARIANT, DARK , "textures/entity/frog/dark_frog.png");
     }

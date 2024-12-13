@@ -1,1 +1,7 @@
-{"parent":"minecraft:block/cube_column","textures":{"end":"instantfeedback:block/cerulean_froglight_top","side":"instantfeedback:block/cerulean_froglight_side"}}
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "instantfeedback:block/cerulean_froglight_top",
+    "side": "instantfeedback:block/cerulean_froglight_side"
+  }
+}

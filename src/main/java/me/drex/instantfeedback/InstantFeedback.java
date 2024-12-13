@@ -8,15 +8,25 @@ import me.drex.instantfeedback.worldgen.ModVegetationPlacements;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
+import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
+import net.minecraft.advancements.critereon.DamageSourcePredicate;
+import net.minecraft.advancements.critereon.EntityPredicate;
+import net.minecraft.advancements.critereon.EntitySubPredicates;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.predicates.DamageSourceCondition;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -61,5 +71,24 @@ public class InstantFeedback implements ModInitializer {
             GenerationStep.Decoration.VEGETAL_DECORATION,
             ModVegetationPlacements.PALE_VEGETATION
         );
+        LootTableEvents.MODIFY.register((key, tableBuilder, source, registries) -> {
+            var magmaCube = EntityType.MAGMA_CUBE.getDefaultLootTable();
+            if (magmaCube.isPresent() && magmaCube.get() == key && source.isBuiltin()) {
+                tableBuilder.modifyPools(builder -> {
+                    builder.add(
+                        LootItem.lootTableItem(ModItems.CERULEAN_FROGLIGHT)
+                            .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)))
+                            .when(DamageSourceCondition.hasDamageSource(
+                                DamageSourcePredicate.Builder.damageType()
+                                    .source(
+                                        EntityPredicate.Builder.entity()
+                                            .of(registries.lookupOrThrow(Registries.ENTITY_TYPE), EntityType.FROG)
+                                            .subPredicate(EntitySubPredicates.frogVariant(BuiltInRegistries.FROG_VARIANT.getOrThrow(ModFrogs.DARK)))
+                                    )
+                            ))
+                    );
+                });
+            }
+        });
     }
 }
