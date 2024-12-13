@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.1] - 2024-12-13
+### Added
+- Suspicious stew recipe
+
+### Fixed
+- Froglight blockstate (@cassiancc)
+- Various block/item tags (@cassiancc)
+- Added Cerulean Froglights to Functional Blocks (@cassiancc)
+
 ## [1.5.0] - 2024-12-13
 ### Added
 - Dark Frogs (@cassiancc)
