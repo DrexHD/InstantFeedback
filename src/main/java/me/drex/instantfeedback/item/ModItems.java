@@ -38,6 +38,10 @@ public class ModItems {
                     itemGroup.addAfter(PALE_BUSH, TALL_PALE_BUSH);
                     itemGroup.addAfter(Blocks.PEARLESCENT_FROGLIGHT, CERULEAN_FROGLIGHT);
                 });
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS)
+                .register((itemGroup) -> {
+                    itemGroup.addAfter(Blocks.PEARLESCENT_FROGLIGHT, CERULEAN_FROGLIGHT);
+                });
     }
 
 
