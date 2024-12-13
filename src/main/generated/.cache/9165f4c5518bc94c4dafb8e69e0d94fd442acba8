@@ -1,6 +1,8 @@
-// 1.21.4	2024-12-12T20:40:46.195483901	InstantFeedback/Tags for minecraft:block
-174507cbc9aba8faf975cd83caf2d7740718d151 data/minecraft/tags/block/sword_efficient.json
+// 1.21.4	2024-12-13T19:43:15.433262142	InstantFeedback/Tags for minecraft:block
+96c4f2f992e9c9cd1d5c77e265237bcdc3d61291 data/minecraft/tags/block/replaceable_by_trees.json
+dbfaba2c7fc35dddb68d28b8dddc844b89c0f63a data/minecraft/tags/block/sword_efficient.json
 da467c061cfc37d42549845bde47213322d70f97 data/minecraft/tags/block/bee_attractive.json
 174507cbc9aba8faf975cd83caf2d7740718d151 data/minecraft/tags/block/enderman_holdable.json
-174507cbc9aba8faf975cd83caf2d7740718d151 data/minecraft/tags/block/mineable/axe.json
+dbfaba2c7fc35dddb68d28b8dddc844b89c0f63a data/minecraft/tags/block/mineable/axe.json
 96c4f2f992e9c9cd1d5c77e265237bcdc3d61291 data/minecraft/tags/block/replaceable.json
+da467c061cfc37d42549845bde47213322d70f97 data/minecraft/tags/block/small_flowers.json
