@@ -2,11 +2,13 @@ package me.drex.instantfeedback.datagen;
 
 import me.drex.instantfeedback.InstantFeedback;
 import me.drex.instantfeedback.block.ModBlocks;
+import me.drex.instantfeedback.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -30,6 +32,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         this.getOrCreateTagBuilder(BlockTags.BEE_ATTRACTIVE)
             .add(ModBlocks.PALE_ROSE);
+
+        this.getOrCreateTagBuilder(BlockTags.SMALL_FLOWERS)
+                .add(ModBlocks.PALE_ROSE);
 
         FabricTagBuilder builder = this.getOrCreateTagBuilder(BlockTags.REPLACEABLE);
         wrapperLookup.lookupOrThrow(Registries.BLOCK)
