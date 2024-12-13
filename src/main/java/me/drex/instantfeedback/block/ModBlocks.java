@@ -80,6 +80,16 @@ public class ModBlocks {
             .pushReaction(PushReaction.DESTROY)
     );
 
+    public static final Block CERULEAN_FROGLIGHT = register(
+            "cerulean_froglight",
+            RotatedPillarBlock::new,
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_LIGHT_BLUE)
+                    .strength(0.3f)
+                    .sound(SoundType.FROGLIGHT)
+                    .lightLevel(blockStatex -> 15)
+    );
+
     public static void initialize() {
     }
 

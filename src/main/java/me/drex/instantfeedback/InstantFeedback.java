@@ -1,6 +1,7 @@
 package me.drex.instantfeedback;
 
 import me.drex.instantfeedback.block.ModBlocks;
+import me.drex.instantfeedback.entity.ModFrogs;
 import me.drex.instantfeedback.item.ModItems;
 import me.drex.instantfeedback.worldgen.FallenDarkOakTrunkPlacer;
 import me.drex.instantfeedback.worldgen.ModVegetationPlacements;
@@ -33,6 +34,7 @@ public class InstantFeedback implements ModInitializer {
         Registry.register(BuiltInRegistries.PARTICLE_TYPE, ResourceLocation.fromNamespaceAndPath(MOD_ID, "creaking_eyes"), CREAKING_EYES);
         ModBlocks.initialize();
         ModItems.initialize();
+        ModFrogs.inititalize();
         BiomeModifications.create(ResourceLocation.fromNamespaceAndPath(MOD_ID, "pale_garden_remove_spawn"))
             .add(ModificationPhase.REMOVALS, context -> context.getBiomeKey() == Biomes.PALE_GARDEN, context -> {
                 context.getSpawnSettings().clearSpawns();
