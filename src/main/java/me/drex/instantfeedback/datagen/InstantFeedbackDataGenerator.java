@@ -16,6 +16,7 @@ public class InstantFeedbackDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(ModLootTableProvider::new);
         pack.addProvider(ModBlockTagProvider::new);
         pack.addProvider(ModItemTagProvider::new);
+        pack.addProvider(ModRecipeProvider::new);
     }
 
     @Override

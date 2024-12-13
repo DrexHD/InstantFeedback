@@ -44,7 +44,7 @@ public class ModBlocks {
 
     public static final Block PALE_ROSE = register(
         "pale_rose",
-        properties -> new FlowerBlock(MobEffects.WEAKNESS, 9.0F, properties),
+        properties -> new FlowerBlock(MobEffects.GLOWING, 5.0F, properties),
         BlockBehaviour.Properties.of()
             .mapColor(DyeColor.WHITE)
             .noCollission()
