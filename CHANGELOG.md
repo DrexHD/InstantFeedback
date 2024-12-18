@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Brazilian Portuguese translation
+
+### Fixed
+- East / west direction for fallen trees
+
 ## [1.5.1] - 2024-12-13
 ### Added
 - Suspicious stew recipe

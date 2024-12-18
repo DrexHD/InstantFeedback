@@ -29,7 +29,7 @@ public class FallenDarkOakTrunkPlacer extends TrunkPlacer {
 
     @Override
     protected TrunkPlacerType<?> type() {
-        return InstantFeedback.DARK_OAK_TRUNK_PLACER;
+        return InstantFeedback.FALLEN_DARK_OAK_TRUNK_PLACER;
     }
 
     @Override
@@ -42,7 +42,7 @@ public class FallenDarkOakTrunkPlacer extends TrunkPlacer {
         TreeConfiguration treeConfiguration
     ) {
         List<FoliagePlacer.FoliageAttachment> list = Lists.newArrayList();
-        Direction fallDirection = randomSource.nextBoolean() ? Direction.NORTH : Direction.SOUTH;
+        Direction fallDirection = Direction.values()[randomSource.nextInt(4) + 2];
 
         BlockPos below = origin.below();
 
@@ -113,18 +113,13 @@ public class FallenDarkOakTrunkPlacer extends TrunkPlacer {
         int originX = origin.getX();
         int originY = origin.getY();
         int originZ = origin.getZ();
-        switch (direction) {
-            case NORTH:
-                return new BlockPos(x, originY + z - originZ, originZ - y + originY);
-            case SOUTH:
-                return new BlockPos(x, originY - z + originZ + 1, originZ + y - originY);
-//            case EAST:
-//                return new BlockPos(originX + y - originY, originY + z - originZ, z);
-//            case WEST:
-//                return new BlockPos(originX - y + originY, originY + z - originZ, z);
-            default:
-                throw new IllegalStateException();
-        }
+        return switch (direction) {
+            case NORTH -> new BlockPos(x, originY + z - originZ, originZ - y + originY);
+            case SOUTH -> new BlockPos(x, originY - z + originZ + 1, originZ + y - originY);
+            case EAST -> new BlockPos(originX + y - originY, originY + x - originX, z);
+            case WEST -> new BlockPos(originX - y + originY, originY + originX - x + 1, z);
+            default -> throw new IllegalStateException();
+        };
     }
 
 
