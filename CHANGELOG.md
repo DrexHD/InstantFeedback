@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.3] - 2024-12-25
+### Added
+- Potted pale rose
+
 ## [1.5.2] - 2024-12-18
 ### Added
 - Brazilian Portuguese translation

@@ -39,6 +39,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         this.getOrCreateTagBuilder(BlockTags.SMALL_FLOWERS)
                 .add(ModBlocks.PALE_ROSE);
 
+        this.getOrCreateTagBuilder(BlockTags.FLOWER_POTS)
+            .add(ModBlocks.POTTED_PALE_ROSE);
+
         this.getOrCreateTagBuilder(BlockTags.REPLACEABLE_BY_TREES)
                 .add(ModBlocks.PALE_BUSH, ModBlocks.TALL_PALE_BUSH);
 

@@ -53,6 +53,10 @@ public class ModBlocks {
             .offsetType(BlockBehaviour.OffsetType.XZ)
             .pushReaction(PushReaction.DESTROY));
 
+    public static final Block POTTED_PALE_ROSE = register("potted_pale_rose",
+        properties -> new FlowerPotBlock(PALE_ROSE, properties), Blocks.flowerPotProperties().noOcclusion());
+
+
     public static final Block PALE_BUSH = register(
         "pale_bush",
         DeadBushBlock::new,
