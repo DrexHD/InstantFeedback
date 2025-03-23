@@ -14,7 +14,7 @@ import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.TreePlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LeavesBlock;
@@ -58,7 +58,7 @@ public class ModVegetationFeatures {
             Feature.RANDOM_PATCH,
             FeatureUtils.simplePatchConfiguration(
                 Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(
-                    SimpleWeightedRandomList.<BlockState>builder()
+                    WeightedList.<BlockState>builder()
                         .add(ModBlocks.PALE_PUMPKIN.defaultBlockState(), 20)
                         .add(ModBlocks.CARVED_PALE_PUMPKIN.defaultBlockState().setValue(CarvedPalePumpkinBlock.FACING, Direction.NORTH), 1)
                         .add(ModBlocks.CARVED_PALE_PUMPKIN.defaultBlockState().setValue(CarvedPalePumpkinBlock.FACING, Direction.EAST), 1)
@@ -84,7 +84,7 @@ public class ModVegetationFeatures {
             new RandomPatchConfiguration(164, 16, 8, PlacementUtils.filtered(
                 Feature.SIMPLE_BLOCK,
                 new SimpleBlockConfiguration(new WeightedStateProvider(
-                    SimpleWeightedRandomList.<BlockState>builder()
+                    WeightedList.<BlockState>builder()
                         .add(ModBlocks.PALE_ROSE.defaultBlockState(), 1)
                         .add(ModBlocks.PALE_BUSH.defaultBlockState(), 5)
                         .add(ModBlocks.TALL_PALE_BUSH.defaultBlockState(), 5)

@@ -50,9 +50,7 @@ public abstract class SnowGolemMixin extends AbstractGolem implements ISnowGolem
         at = @At("TAIL")
     )
     public void instantfeedback$readAdditionalSaveData(CompoundTag tag, CallbackInfo ci) {
-        if (tag.contains("Pumpkin")) {
-            this.instantfeedback$setPalePumpkin(tag.getBoolean("PalePumpkin"));
-        }
+        tag.getBoolean("PalePumpkin").ifPresent(this::instantfeedback$setPalePumpkin);
     }
 
     @ModifyArg(

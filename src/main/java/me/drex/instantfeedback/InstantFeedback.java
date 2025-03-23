@@ -1,7 +1,7 @@
 package me.drex.instantfeedback;
 
 import me.drex.instantfeedback.block.ModBlocks;
-import me.drex.instantfeedback.entity.ModFrogs;
+import me.drex.instantfeedback.entity.ModFrogVariants;
 import me.drex.instantfeedback.item.ModItems;
 import me.drex.instantfeedback.worldgen.FallenDarkOakTrunkPlacer;
 import me.drex.instantfeedback.worldgen.ModVegetationPlacements;
@@ -11,15 +11,19 @@ import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.advancements.critereon.DamageSourcePredicate;
+import net.minecraft.advancements.critereon.DataComponentMatchers;
 import net.minecraft.advancements.critereon.EntityPredicate;
-import net.minecraft.advancements.critereon.EntitySubPredicates;
+import net.minecraft.core.HolderGetter;
 import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponentExactPredicate;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.animal.frog.FrogVariant;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
@@ -44,7 +48,6 @@ public class InstantFeedback implements ModInitializer {
         Registry.register(BuiltInRegistries.PARTICLE_TYPE, ResourceLocation.fromNamespaceAndPath(MOD_ID, "creaking_eyes"), CREAKING_EYES);
         ModBlocks.initialize();
         ModItems.initialize();
-        ModFrogs.inititalize();
         BiomeModifications.create(ResourceLocation.fromNamespaceAndPath(MOD_ID, "pale_garden_remove_spawn"))
             .add(ModificationPhase.REMOVALS, context -> context.getBiomeKey() == Biomes.PALE_GARDEN, context -> {
                 context.getSpawnSettings().clearSpawns();
@@ -72,6 +75,8 @@ public class InstantFeedback implements ModInitializer {
             ModVegetationPlacements.PALE_VEGETATION
         );
         LootTableEvents.MODIFY.register((key, tableBuilder, source, registries) -> {
+            HolderGetter<EntityType<?>> entityTypes = registries.lookupOrThrow(Registries.ENTITY_TYPE);
+            HolderGetter<FrogVariant> frogVariants = registries.lookupOrThrow(Registries.FROG_VARIANT);
             var magmaCube = EntityType.MAGMA_CUBE.getDefaultLootTable();
             if (magmaCube.isPresent() && magmaCube.get() == key && source.isBuiltin()) {
                 tableBuilder.modifyPools(builder -> {
@@ -82,8 +87,12 @@ public class InstantFeedback implements ModInitializer {
                                 DamageSourcePredicate.Builder.damageType()
                                     .source(
                                         EntityPredicate.Builder.entity()
-                                            .of(registries.lookupOrThrow(Registries.ENTITY_TYPE), EntityType.FROG)
-                                            .subPredicate(EntitySubPredicates.frogVariant(BuiltInRegistries.FROG_VARIANT.getOrThrow(ModFrogs.DARK)))
+                                            .of(entityTypes, EntityType.FROG)
+                                            .components(
+                                                DataComponentMatchers.Builder.components()
+                                                    .exact(DataComponentExactPredicate.expect(DataComponents.FROG_VARIANT, frogVariants.getOrThrow(ModFrogVariants.DARK)))
+                                                    .build()
+                                            )
                                     )
                             ))
                     );

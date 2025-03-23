@@ -38,7 +38,7 @@ public abstract class LevelRenderMixin {
     public float shortFogDistance(float original, @Local(argsOnly = true) Camera camera) {
         float fogDistance = original;
         if (this.minecraft.level.getBiome(BlockPos.containing(camera.getPosition())).is(Biomes.PALE_GARDEN)) {
-            boolean night = this.minecraft.level.isNight();
+            boolean night = this.minecraft.level.isDarkOutside();
             fogDistance = Math.min(original, night ? 48 : 96);
         }
 

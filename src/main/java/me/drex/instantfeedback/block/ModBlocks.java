@@ -59,7 +59,7 @@ public class ModBlocks {
 
     public static final Block PALE_BUSH = register(
         "pale_bush",
-        DeadBushBlock::new,
+        DryVegetationBlock::new,
         BlockBehaviour.Properties.of()
             .mapColor(MapColor.TERRACOTTA_BROWN)
             .replaceable()

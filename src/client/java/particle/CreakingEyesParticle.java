@@ -11,7 +11,7 @@ public class CreakingEyesParticle extends SimpleAnimatedParticle {
         super(clientLevel, d, e, f, spriteSet, 0);
         this.quadSize *= 2;
         this.setSpriteFromAge(spriteSet);
-        if (clientLevel.isNight()) {
+        if (clientLevel.isDarkOutside()) {
             this.lifetime = 200 + this.random.nextInt(40);
         } else {
             this.lifetime = 0;
