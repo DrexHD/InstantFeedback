@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Potted cactus flower
 - Falling needle spruce particles
+- Muddy pigs in swamps
 
 ### Fixed
 - Potted pale rose translation

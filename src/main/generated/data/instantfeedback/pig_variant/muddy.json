@@ -1,0 +1,12 @@
+{
+  "asset_id": "instantfeedback:entity/pig/muddy_pig",
+  "spawn_conditions": [
+    {
+      "condition": {
+        "type": "minecraft:biome",
+        "biomes": "#c:is_swamp"
+      },
+      "priority": 1
+    }
+  ]
+}
