@@ -21,5 +21,10 @@ public class InstantFeedbackClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TALL_PALE_BUSH, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_PALE_ROSE, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_CACTUS_FLOWER, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_ROSE_BUSH, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_PEONY, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_LILAC, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_SUNFLOWER, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_PITCHER_PLANT, RenderType.cutout());
     }
 }

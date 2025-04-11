@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Potted cactus flower
+- Potted tall flowers (Rose Bush, Peony, Lilac, Sunflower & Pitcher Plant)
 - Falling needle spruce particles
 - Muddy pigs in swamps
 

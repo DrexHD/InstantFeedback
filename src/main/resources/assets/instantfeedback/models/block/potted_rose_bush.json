@@ -1,0 +1,7 @@
+{
+  "parent": "instantfeedback:block/tall_flower_pot_cross",
+  "textures": {
+    "plant_bottom": "minecraft:block/rose_bush_bottom",
+    "plant_top": "minecraft:block/rose_bush_top"
+  }
+}

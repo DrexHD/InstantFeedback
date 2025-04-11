@@ -25,5 +25,10 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         this.dropSelf(ModBlocks.CERULEAN_FROGLIGHT);
         this.dropPottedContents(ModBlocks.POTTED_PALE_ROSE);
         this.dropPottedContents(ModBlocks.POTTED_CACTUS_FLOWER);
+        this.dropPottedContents(ModBlocks.POTTED_ROSE_BUSH);
+        this.dropPottedContents(ModBlocks.POTTED_PEONY);
+        this.dropPottedContents(ModBlocks.POTTED_LILAC);
+        this.dropPottedContents(ModBlocks.POTTED_SUNFLOWER);
+        this.dropPottedContents(ModBlocks.POTTED_PITCHER_PLANT);
     }
 }

@@ -5,6 +5,7 @@ A fabric mod implementing features requested on minecraft feedback pages!
 Feedback: [Spring to Life](https://feedback.minecraft.net/hc/en-us/community/topics/33267006417549-Spring-to-Life)
 
 - Cactus flowers can now be placed in flower pots
+- Tall flowers (Rose Bush, Peony, Lilac, Sunflower & Pitcher Plant) can now be placed in flower ports
 - Spruce trees now spawn falling needle particles
 - Added muddy pig variants in swamps
 

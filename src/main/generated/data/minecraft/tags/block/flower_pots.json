@@ -1,6 +1,11 @@
 {
   "values": [
     "instantfeedback:potted_pale_rose",
-    "instantfeedback:potted_cactus_flower"
+    "instantfeedback:potted_cactus_flower",
+    "instantfeedback:potted_rose_bush",
+    "instantfeedback:potted_peony",
+    "instantfeedback:potted_lilac",
+    "instantfeedback:potted_sunflower",
+    "instantfeedback:potted_pitcher_plant"
   ]
 }
