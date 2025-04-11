@@ -17,6 +17,8 @@ import net.minecraft.core.HolderGetter;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponentExactPredicate;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.particles.ColorParticleOption;
+import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -40,12 +42,14 @@ public class InstantFeedback implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
     public static final SimpleParticleType CREAKING_EYES = FabricParticleTypes.simple();
+    public static final ParticleType<ColorParticleOption> TINTED_NEEDLES = FabricParticleTypes.complex(ColorParticleOption::codec, ColorParticleOption::streamCodec);
     public static final TrunkPlacerType<FallenDarkOakTrunkPlacer> FALLEN_DARK_OAK_TRUNK_PLACER = Registry.register(BuiltInRegistries.TRUNK_PLACER_TYPE, ResourceLocation.fromNamespaceAndPath(MOD_ID, "fallen_dark_oak_trunk_placer"), new TrunkPlacerType<>(FallenDarkOakTrunkPlacer.CODEC));
 
 
     @Override
     public void onInitialize() {
         Registry.register(BuiltInRegistries.PARTICLE_TYPE, ResourceLocation.fromNamespaceAndPath(MOD_ID, "creaking_eyes"), CREAKING_EYES);
+        Registry.register(BuiltInRegistries.PARTICLE_TYPE, ResourceLocation.fromNamespaceAndPath(MOD_ID, "tinted_needles"), TINTED_NEEDLES);
         ModBlocks.initialize();
         ModItems.initialize();
         BiomeModifications.create(ResourceLocation.fromNamespaceAndPath(MOD_ID, "pale_garden_remove_spawn"))

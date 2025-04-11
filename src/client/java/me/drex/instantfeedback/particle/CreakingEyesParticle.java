@@ -1,4 +1,4 @@
-package particle;
+package me.drex.instantfeedback.particle;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

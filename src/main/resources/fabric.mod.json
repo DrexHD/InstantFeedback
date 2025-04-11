@@ -26,6 +26,7 @@
 			"me.drex.instantfeedback.datagen.InstantFeedbackDataGenerator"
 		]
 	},
+	"accessWidener": "instantfeedback.accesswidener",
 	"mixins": [
 		"instantfeedback.mixins.json",
 		{

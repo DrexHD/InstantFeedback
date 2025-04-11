@@ -1,6 +1,7 @@
 package me.drex.instantfeedback.datagen;
 
 import me.drex.instantfeedback.InstantFeedback;
+import me.drex.instantfeedback.block.ModBlockTags;
 import me.drex.instantfeedback.block.ModBlocks;
 import me.drex.instantfeedback.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -9,6 +10,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.level.block.Blocks;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -45,6 +47,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         this.getOrCreateTagBuilder(BlockTags.REPLACEABLE_BY_TREES)
                 .add(ModBlocks.PALE_BUSH, ModBlocks.TALL_PALE_BUSH);
+
+        this.getOrCreateTagBuilder(ModBlockTags.LEAVES_NEEDLES)
+            .add(Blocks.SPRUCE_LEAVES);
 
         FabricTagBuilder builder = this.getOrCreateTagBuilder(BlockTags.REPLACEABLE);
         wrapperLookup.lookupOrThrow(Registries.BLOCK)

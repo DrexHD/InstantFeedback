@@ -1,17 +1,19 @@
 package me.drex.instantfeedback;
 
 import me.drex.instantfeedback.block.ModBlocks;
+import me.drex.instantfeedback.particle.TintedNeedlesProvider;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.minecraft.client.renderer.RenderType;
-import particle.CreakingEyesParticle;
+import me.drex.instantfeedback.particle.CreakingEyesParticle;
 
 public class InstantFeedbackClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
         ParticleFactoryRegistry.getInstance().register(InstantFeedback.CREAKING_EYES, CreakingEyesParticle.Provider::new);
+        ParticleFactoryRegistry.getInstance().register(InstantFeedback.TINTED_NEEDLES, TintedNeedlesProvider::new);
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CARVED_PALE_PUMPKIN, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PALE_ROSE, RenderType.cutout());

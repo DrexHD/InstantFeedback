@@ -22,7 +22,7 @@ loom {
 			sourceSet sourceSets.client
 		}
 	}
-
+	accessWidenerPath.set(file("src/main/resources/instantfeedback.accesswidener"))
 }
 
 fabricApi {
