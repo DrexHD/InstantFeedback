@@ -1,6 +1,15 @@
-A snapshot mod implementing features requested on [Let's talk about the Pale Garden! ](https://feedback.minecraft.net/hc/en-us/community/posts/30730572844173-Let-s-talk-about-the-Pale-Garden) and [Let's talk about the Creaking!](https://feedback.minecraft.net/hc/en-us/community/posts/30730545094029-Let-s-talk-about-the-Creaking) minecraft feedback pages!
+A fabric mod implementing features requested on minecraft feedback pages!
 
-# Implemented feedback
+# Spring to Life
+
+Feedback: [Spring to Life](https://feedback.minecraft.net/hc/en-us/community/topics/33267006417549-Spring-to-Life)
+
+- Cactus flowers can now be placed in flower pots
+- Spruce trees now spawn falling needle particles
+- Added muddy pig variants in swamps
+
+# The Garden Awakens
+Feedback: [Let's talk about the Pale Garden!](https://feedback.minecraft.net/hc/en-us/community/posts/30730572844173-Let-s-talk-about-the-Pale-Garden) and [Let's talk about the Creaking!](https://feedback.minecraft.net/hc/en-us/community/posts/30730545094029-Let-s-talk-about-the-Creaking)
 ## Pale Garden
 - Biome fog. The fog gets denser during night!
 - Pale pumpkins have been added in two varations. Regular and "carved"
