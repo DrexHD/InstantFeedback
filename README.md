@@ -9,6 +9,8 @@ Feedback: [Spring to Life](https://feedback.minecraft.net/hc/en-us/community/top
 - Spruce trees now spawn falling needle particles
 - Added muddy pig variants in swamps
 
+![spring to life feedback content overview](https://cdn.modrinth.com/data/pcDsJNzK/images/f7698bcd91f446981e98388b4a09a9671cdf7df4.png)
+
 # The Garden Awakens
 Feedback: [Let's talk about the Pale Garden!](https://feedback.minecraft.net/hc/en-us/community/posts/30730572844173-Let-s-talk-about-the-Pale-Garden) and [Let's talk about the Creaking!](https://feedback.minecraft.net/hc/en-us/community/posts/30730545094029-Let-s-talk-about-the-Creaking)
 ## Pale Garden
