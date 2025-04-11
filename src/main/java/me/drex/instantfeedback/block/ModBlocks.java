@@ -56,6 +56,8 @@ public class ModBlocks {
     public static final Block POTTED_PALE_ROSE = register("potted_pale_rose",
         properties -> new FlowerPotBlock(PALE_ROSE, properties), Blocks.flowerPotProperties().noOcclusion());
 
+    public static final Block POTTED_CACTUS_FLOWER = register("potted_cactus_flower",
+        properties -> new FlowerPotBlock(Blocks.CACTUS_FLOWER, properties), Blocks.flowerPotProperties().noOcclusion());
 
     public static final Block PALE_BUSH = register(
         "pale_bush",

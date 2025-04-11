@@ -24,5 +24,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         this.add(ModBlocks.TALL_PALE_BUSH, block -> this.createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
         this.dropSelf(ModBlocks.CERULEAN_FROGLIGHT);
         this.dropPottedContents(ModBlocks.POTTED_PALE_ROSE);
+        this.dropPottedContents(ModBlocks.POTTED_CACTUS_FLOWER);
     }
 }
