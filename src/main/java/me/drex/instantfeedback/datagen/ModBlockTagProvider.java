@@ -3,13 +3,14 @@ package me.drex.instantfeedback.datagen;
 import me.drex.instantfeedback.InstantFeedback;
 import me.drex.instantfeedback.block.ModBlockTags;
 import me.drex.instantfeedback.block.ModBlocks;
-import me.drex.instantfeedback.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.data.tags.TagAppender;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.ItemTags;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
 import java.util.concurrent.CompletableFuture;
@@ -21,27 +22,27 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider wrapperLookup) {
-        this.getOrCreateTagBuilder(BlockTags.ENDERMAN_HOLDABLE)
+        this.valueLookupBuilder(BlockTags.ENDERMAN_HOLDABLE)
             .add(ModBlocks.PALE_PUMPKIN)
             .add(ModBlocks.CARVED_PALE_PUMPKIN);
 
-        this.getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_AXE)
+        this.valueLookupBuilder(BlockTags.MINEABLE_WITH_AXE)
             .add(ModBlocks.PALE_PUMPKIN)
             .add(ModBlocks.CARVED_PALE_PUMPKIN)
             .add(ModBlocks.PALE_BUSH, ModBlocks.TALL_PALE_BUSH);
 
-        this.getOrCreateTagBuilder(BlockTags.SWORD_EFFICIENT)
+        this.valueLookupBuilder(BlockTags.SWORD_EFFICIENT)
             .add(ModBlocks.PALE_PUMPKIN)
             .add(ModBlocks.CARVED_PALE_PUMPKIN)
             .add(ModBlocks.PALE_BUSH, ModBlocks.TALL_PALE_BUSH);
 
-        this.getOrCreateTagBuilder(BlockTags.BEE_ATTRACTIVE)
+        this.valueLookupBuilder(BlockTags.BEE_ATTRACTIVE)
             .add(ModBlocks.PALE_ROSE);
 
-        this.getOrCreateTagBuilder(BlockTags.SMALL_FLOWERS)
+        this.valueLookupBuilder(BlockTags.SMALL_FLOWERS)
                 .add(ModBlocks.PALE_ROSE);
 
-        this.getOrCreateTagBuilder(BlockTags.FLOWER_POTS)
+        this.valueLookupBuilder(BlockTags.FLOWER_POTS)
             .add(ModBlocks.POTTED_PALE_ROSE)
             .add(ModBlocks.POTTED_CACTUS_FLOWER)
             .add(ModBlocks.POTTED_ROSE_BUSH)
@@ -50,13 +51,13 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
             .add(ModBlocks.POTTED_SUNFLOWER)
             .add(ModBlocks.POTTED_PITCHER_PLANT);
 
-        this.getOrCreateTagBuilder(BlockTags.REPLACEABLE_BY_TREES)
+        this.valueLookupBuilder(BlockTags.REPLACEABLE_BY_TREES)
                 .add(ModBlocks.PALE_BUSH, ModBlocks.TALL_PALE_BUSH);
 
-        this.getOrCreateTagBuilder(ModBlockTags.LEAVES_NEEDLES)
+        this.valueLookupBuilder(ModBlockTags.LEAVES_NEEDLES)
             .add(Blocks.SPRUCE_LEAVES);
 
-        FabricTagBuilder builder = this.getOrCreateTagBuilder(BlockTags.REPLACEABLE);
+        TagAppender<ResourceKey<Block>, Block> builder = this.builder(BlockTags.REPLACEABLE);
         wrapperLookup.lookupOrThrow(Registries.BLOCK)
             .filterElements(block -> block.defaultBlockState().canBeReplaced())
             .listElementIds()

@@ -3,7 +3,6 @@ package me.drex.instantfeedback.datagen;
 import me.drex.instantfeedback.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.tags.ItemTags;
 
@@ -16,7 +15,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider wrapperLookup) {
-        this.getOrCreateTagBuilder(ItemTags.SMALL_FLOWERS)
+        this.valueLookupBuilder(ItemTags.SMALL_FLOWERS)
             .add(ModItems.PALE_ROSE);
     }
 }

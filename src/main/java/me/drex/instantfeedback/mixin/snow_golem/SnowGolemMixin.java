@@ -1,7 +1,6 @@
 package me.drex.instantfeedback.mixin.snow_golem;
 
 import me.drex.instantfeedback.duck.snow_golem.ISnowGolem;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -10,6 +9,8 @@ import net.minecraft.world.entity.animal.AbstractGolem;
 import net.minecraft.world.entity.animal.SnowGolem;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -41,16 +42,16 @@ public abstract class SnowGolemMixin extends AbstractGolem implements ISnowGolem
         method = "addAdditionalSaveData",
         at = @At("TAIL")
     )
-    public void instantfeedback$addAdditionalSaveData(CompoundTag tag, CallbackInfo ci) {
-        tag.putBoolean("PalePumpkin", this.instantfeedback$hasPalePumpkin());
+    public void instantfeedback$addAdditionalSaveData(ValueOutput output, CallbackInfo ci) {
+        output.putBoolean("PalePumpkin", this.instantfeedback$hasPalePumpkin());
     }
 
     @Inject(
         method = "readAdditionalSaveData",
         at = @At("TAIL")
     )
-    public void instantfeedback$readAdditionalSaveData(CompoundTag tag, CallbackInfo ci) {
-        tag.getBoolean("PalePumpkin").ifPresent(this::instantfeedback$setPalePumpkin);
+    public void instantfeedback$readAdditionalSaveData(ValueInput tag, CallbackInfo ci) {
+        instantfeedback$setPalePumpkin(tag.getBooleanOr("PalePumpkin", false));
     }
 
     @ModifyArg(

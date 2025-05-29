@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.1.0] - 2025-05-29
+### Changed
+- Improved pale garden fog
+- Updated to 1.21.6-pre1
+
 ### Fixed
 - Potted tall flower translations
 

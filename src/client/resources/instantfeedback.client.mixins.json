@@ -3,7 +3,7 @@
   "package": "me.drex.instantfeedback.mixin.client",
   "compatibilityLevel": "JAVA_21",
   "client": [
-    "LevelRenderMixin",
+    "AtmosphericFogEnvironmentMixin",
     "snow_golem.SnowGolemHeadLayerMixin",
     "snow_golem.SnowGolemRendererMixin",
     "snow_golem.SnowGolemRenderStateMixin"
@@ -12,7 +12,7 @@
     "defaultRequire": 1
   },
   "mixins": [
-    "TintedParticleLeavesBlockMixin",
-    "HangingMossBlockMixin"
+    "HangingMossBlockMixin",
+    "TintedParticleLeavesBlockMixin"
   ]
 }
