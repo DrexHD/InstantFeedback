@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:suspicious_stew_from_pale_rose"
+        "recipe": "instantfeedback:suspicious_stew_from_pale_rose"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:suspicious_stew_from_pale_rose"
+      "instantfeedback:suspicious_stew_from_pale_rose"
     ]
   }
 }
