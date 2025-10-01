@@ -22,6 +22,6 @@ public class ModFrogVariants {
     public static void bootstrap(BootstrapContext<FrogVariant> bootstrapContext) {
         var holderSet = bootstrapContext.lookup(Registries.BIOME).getOrThrow(ConventionalBiomeTags.IS_DARK_FOREST);
         var spawnPrioritySelectors = SpawnPrioritySelectors.single(new BiomeCheck(holderSet), 1);
-        bootstrapContext.register(ModFrogVariants.DARK, new FrogVariant(new ClientAsset(ResourceLocation.fromNamespaceAndPath(MOD_ID, "entity/frog/dark_frog")), spawnPrioritySelectors));
+        bootstrapContext.register(ModFrogVariants.DARK, new FrogVariant(new ClientAsset.ResourceTexture(ResourceLocation.fromNamespaceAndPath(MOD_ID, "entity/frog/dark_frog")), spawnPrioritySelectors));
     }
 }
