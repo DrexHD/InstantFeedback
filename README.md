@@ -1,5 +1,11 @@
 A fabric mod implementing features requested on minecraft feedback pages!
 
+# Chase the Skies
+
+Feedback: [Chase the Skies](https://feedback.minecraft.net/hc/en-us/community/topics/35301401438605-Chase-the-Skies)
+
+- Happy Ghasts are now affected by speed potions *(Added flying speed attribute to speed potions)*
+
 # Spring to Life
 
 Feedback: [Spring to Life](https://feedback.minecraft.net/hc/en-us/community/topics/33267006417549-Spring-to-Life)
