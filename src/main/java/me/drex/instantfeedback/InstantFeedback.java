@@ -2,6 +2,7 @@ package me.drex.instantfeedback;
 
 import me.drex.instantfeedback.block.ModBlocks;
 import me.drex.instantfeedback.entity.ModFrogVariants;
+import me.drex.instantfeedback.item.ModCauldronInteraction;
 import me.drex.instantfeedback.item.ModItems;
 import me.drex.instantfeedback.worldgen.FallenDarkOakTrunkPlacer;
 import me.drex.instantfeedback.worldgen.ModVegetationPlacements;
@@ -15,6 +16,7 @@ import net.minecraft.advancements.critereon.DataComponentMatchers;
 import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.Registry;
+import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.core.component.DataComponentExactPredicate;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ColorParticleOption;
@@ -26,6 +28,8 @@ import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.frog.FrogVariant;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
@@ -35,6 +39,8 @@ import net.minecraft.world.level.storage.loot.predicates.DamageSourceCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Map;
 
 public class InstantFeedback implements ModInitializer {
 
@@ -103,5 +109,7 @@ public class InstantFeedback implements ModInitializer {
                 });
             }
         });
+
+        ModCauldronInteraction.bootstrap();
     }
 }
