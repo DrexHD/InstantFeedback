@@ -112,4 +112,8 @@ public class InstantFeedback implements ModInitializer {
 
         ModCauldronInteraction.bootstrap();
     }
+
+    public static String id(String path) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path).toString();
+    }
 }

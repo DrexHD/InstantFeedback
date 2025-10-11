@@ -7,7 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Happy Ghasts are now affected by speed potions *(Added flying speed attribute to speed potions)*
-- Bundles can be undyed in cauldrons 
+- Bundles can be undyed in cauldrons
+- Friends 'Till The End advancement
 
 ## [2.1.0] - 2025-05-29
 ### Changed

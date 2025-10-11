@@ -1,0 +1,42 @@
+{
+  "parent": "minecraft:end/root",
+  "criteria": {
+    "ride_happy_ghast": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "minecraft:happy_ghast",
+              "location": {
+                "dimension": "minecraft:the_end"
+              }
+            }
+          }
+        ],
+        "item": {}
+      },
+      "trigger": "minecraft:player_interacted_with_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.instantfeedback.end.ride_happy_ghast.description"
+    },
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:white_harness"
+    },
+    "title": {
+      "translate": "advancement.instantfeedback.end.ride_happy_ghast.title"
+    }
+  },
+  "requirements": [
+    [
+      "ride_happy_ghast"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
