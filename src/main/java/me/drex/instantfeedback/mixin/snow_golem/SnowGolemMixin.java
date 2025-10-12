@@ -1,6 +1,6 @@
 package me.drex.instantfeedback.mixin.snow_golem;
 
-import me.drex.instantfeedback.duck.snow_golem.ISnowGolem;
+import me.drex.instantfeedback.duck.ISnowGolem;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;

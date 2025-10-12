@@ -1,7 +1,7 @@
 package me.drex.instantfeedback.block;
 
 import com.mojang.serialization.MapCodec;
-import me.drex.instantfeedback.duck.snow_golem.ISnowGolem;
+import me.drex.instantfeedback.duck.ISnowGolem;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

@@ -1,4 +1,4 @@
-package me.drex.instantfeedback.duck.snow_golem;
+package me.drex.instantfeedback.duck;
 
 public interface ISnowGolemRenderState {
     boolean instantfeedback$hasPalePumpkin();

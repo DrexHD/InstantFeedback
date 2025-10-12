@@ -1,6 +1,6 @@
 package me.drex.instantfeedback.mixin.client.snow_golem;
 
-import me.drex.instantfeedback.duck.snow_golem.ISnowGolemRenderState;
+import me.drex.instantfeedback.duck.ISnowGolemRenderState;
 import net.minecraft.client.renderer.entity.state.SnowGolemRenderState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;

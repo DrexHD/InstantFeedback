@@ -7,6 +7,7 @@ Feedback: [Chase the Skies](https://feedback.minecraft.net/hc/en-us/community/to
 - Happy Ghasts are now affected by speed potions *(Added flying speed attribute to speed potions)*
 - Bundles can be undyed in cauldrons
 - Friends 'Till The End advancement
+- Happy Ghast calling mechanic *(Goat horns can be used to make them fly towards you)*
 
 # Spring to Life
 

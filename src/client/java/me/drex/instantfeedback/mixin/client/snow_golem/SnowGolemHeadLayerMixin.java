@@ -4,7 +4,7 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
 import me.drex.instantfeedback.block.ModBlocks;
-import me.drex.instantfeedback.duck.snow_golem.ISnowGolemRenderState;
+import me.drex.instantfeedback.duck.ISnowGolemRenderState;
 import net.minecraft.client.renderer.entity.layers.SnowGolemHeadLayer;
 import net.minecraft.client.renderer.entity.state.SnowGolemRenderState;
 import net.minecraft.world.level.block.Block;

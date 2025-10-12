@@ -1,7 +1,7 @@
 package me.drex.instantfeedback.mixin.client.snow_golem;
 
-import me.drex.instantfeedback.duck.snow_golem.ISnowGolem;
-import me.drex.instantfeedback.duck.snow_golem.ISnowGolemRenderState;
+import me.drex.instantfeedback.duck.ISnowGolem;
+import me.drex.instantfeedback.duck.ISnowGolemRenderState;
 import net.minecraft.client.renderer.entity.SnowGolemRenderer;
 import net.minecraft.client.renderer.entity.state.SnowGolemRenderState;
 import net.minecraft.world.entity.animal.SnowGolem;
