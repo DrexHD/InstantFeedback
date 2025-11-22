@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.1] - 2025-11-22
+### Fixed
+- Spruce falling leave particle color
+
 ## [3.0.0] - 2025-10-23
 ### Added
 - Happy Ghasts are now affected by speed potions *(Added flying speed attribute to speed potions)*

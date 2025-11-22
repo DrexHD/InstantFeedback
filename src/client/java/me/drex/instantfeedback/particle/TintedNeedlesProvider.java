@@ -21,6 +21,8 @@ public class TintedNeedlesProvider implements ParticleProvider<ColorParticleOpti
 
     @Override
     public @Nullable Particle createParticle(ColorParticleOption colorParticleOption, ClientLevel clientLevel, double d, double e, double f, double g, double h, double i, RandomSource randomSource) {
-        return new FallingLeavesParticle(clientLevel, d, e, f, this.sprites.get(randomSource), 0.28F, 7.0F, true, false, 2.0F, 0.021F);
+        var particle = new FallingLeavesParticle(clientLevel, d, e, f, this.sprites.get(randomSource), 0.28F, 7.0F, true, false, 2.0F, 0.021F);
+        particle.setColor(colorParticleOption.getRed(), colorParticleOption.getGreen(), colorParticleOption.getBlue());
+        return particle;
     }
 }
