@@ -1,49 +1,51 @@
 package me.drex.instantfeedback.mixin.client;
 
+import com.llamalad7.mixinextras.expression.Definition;
+import com.llamalad7.mixinextras.expression.Expression;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import com.llamalad7.mixinextras.sugar.Share;
+import com.llamalad7.mixinextras.sugar.ref.LocalFloatRef;
+import net.minecraft.client.Camera;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.fog.FogData;
 import net.minecraft.client.renderer.fog.environment.AtmosphericFogEnvironment;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
-import net.minecraft.util.Mth;
-import net.minecraft.world.entity.Entity;
+import net.minecraft.world.attribute.EnvironmentAttribute;
+import net.minecraft.world.attribute.EnvironmentAttributeProbe;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(AtmosphericFogEnvironment.class)
 public abstract class AtmosphericFogEnvironmentMixin {
-    @Unique
-    private float instantfeedback$paleGardenDivider = 1;
-
-    @Inject(
-        method = "setupFog",
-        at = @At("RETURN")
-    )
-    public void addPaleGardenFog(
-        FogData fogData, Entity entity, BlockPos blockPos,
-        ClientLevel clientLevel, float f, DeltaTracker deltaTracker,
-        CallbackInfo ci
+    @Inject(method = "setupFog", at = @At("HEAD"))
+    public void calculatePaleGardenFog(
+        FogData fogData, Camera camera, ClientLevel clientLevel, float f, DeltaTracker deltaTracker, CallbackInfo ci,
+        @Share("fogEndDivider") LocalFloatRef fogEndDividerRef
     ) {
+        BlockPos blockPos = camera.blockPosition();
         Holder<Biome> biome = clientLevel.getBiome(blockPos);
+        fogEndDividerRef.set(1);
         if (biome.is(Biomes.PALE_GARDEN)) {
-            // during midnight the divider is 4x bigger than during day
-            float nightMultiplier = (Mth.clamp(Mth.cos(clientLevel.getTimeOfDay(1.0F) * (float) (Math.PI * 2)), -1, 0) * -3) + 1;
-
-            instantfeedback$paleGardenDivider += deltaTracker.getGameTimeDeltaTicks() * 0.2f;
-            instantfeedback$paleGardenDivider = Math.min(16 * nightMultiplier, instantfeedback$paleGardenDivider);
-        } else {
-            instantfeedback$paleGardenDivider -= deltaTracker.getGameTimeDeltaTicks() * 0.8f;
-            instantfeedback$paleGardenDivider = Math.max(instantfeedback$paleGardenDivider, 1);
+            float nightMultiplier = (float) (Math.clamp(Math.cos(((clientLevel.getDayTime() - 18000) / 24000f) * Math.PI * 2), 0, 1) * 3) + 1;
+            fogEndDividerRef.set(nightMultiplier);
         }
-        fogData.environmentalStart /= instantfeedback$paleGardenDivider;
-        fogData.environmentalEnd /= instantfeedback$paleGardenDivider;
-        fogData.cloudEnd /= instantfeedback$paleGardenDivider;
-        fogData.skyEnd /= instantfeedback$paleGardenDivider;
+    }
+
+    @Definition(id = "getValue", method = "Lnet/minecraft/world/attribute/EnvironmentAttributeProbe;getValue(Lnet/minecraft/world/attribute/EnvironmentAttribute;F)Ljava/lang/Object;")
+    @Expression("?.getValue(?, ?)")
+    @WrapOperation(method = "setupFog", at = @At("MIXINEXTRAS:EXPRESSION"))
+    public <Value> Value adjustFogStartDistance(
+        EnvironmentAttributeProbe instance, EnvironmentAttribute<Value> environmentAttribute, float partialTick,
+        Operation<Value> original, @Share("fogEndDivider") LocalFloatRef fogEndDividerRef
+    ) {
+        float result = (float) original.call(instance, environmentAttribute, partialTick) / fogEndDividerRef.get();
+        return (Value) (Object) result;
     }
 }

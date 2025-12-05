@@ -5,7 +5,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeColor;
@@ -115,7 +115,7 @@ public class ModBlocks {
     }
 
     public static Block register(Block block, String path) {
-        ResourceLocation id = ResourceLocation.fromNamespaceAndPath(InstantFeedback.MOD_ID, path);
+        Identifier id = Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, path);
         BlockItem blockItem = new BlockItem(block, new Item.Properties());
         Registry.register(BuiltInRegistries.ITEM, id, blockItem);
         return Registry.register(BuiltInRegistries.BLOCK, id, block);
@@ -131,7 +131,7 @@ public class ModBlocks {
     }
 
     private static ResourceKey<Block> blockId(String path) {
-        return ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(InstantFeedback.MOD_ID, path));
+        return ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, path));
     }
 
     private static Block register(String string, Function<BlockBehaviour.Properties, Block> function, BlockBehaviour.Properties properties) {

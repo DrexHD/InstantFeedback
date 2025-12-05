@@ -6,7 +6,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -16,11 +16,11 @@ public class ModVegetationPlacements {
 
     public static final PlacementModifier HEIGHTMAP_NO_LEAVES = HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES);
 
-    public static final ResourceKey<PlacedFeature> PATCH_PALE_PUMPKIN = ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(InstantFeedback.MOD_ID, "patch_pale_pumpkin"));
-    public static final ResourceKey<PlacedFeature> PILE_PALE_LEAVES = ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(InstantFeedback.MOD_ID, "pile_pale_leaves"));
-    public static final ResourceKey<PlacedFeature> PALE_VEGETATION = ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(InstantFeedback.MOD_ID, "pale_vegetation"));
-    public static final ResourceKey<PlacedFeature> FALLEN_PALE_OAK_CREAKING = ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(InstantFeedback.MOD_ID, "fallen_pale_oak_creaking"));
-    public static final ResourceKey<PlacedFeature> PALE_GARDEN_VEGETATION = ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(InstantFeedback.MOD_ID, "pale_garden_vegetation"));
+    public static final ResourceKey<PlacedFeature> PATCH_PALE_PUMPKIN = ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, "patch_pale_pumpkin"));
+    public static final ResourceKey<PlacedFeature> PILE_PALE_LEAVES = ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, "pile_pale_leaves"));
+    public static final ResourceKey<PlacedFeature> PALE_VEGETATION = ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, "pale_vegetation"));
+    public static final ResourceKey<PlacedFeature> FALLEN_PALE_OAK_CREAKING = ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, "fallen_pale_oak_creaking"));
+    public static final ResourceKey<PlacedFeature> PALE_GARDEN_VEGETATION = ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, "pale_garden_vegetation"));
 
     public static void bootstrap(BootstrapContext<PlacedFeature> bootstrapContext) {
         HolderGetter<ConfiguredFeature<?, ?>> holderGetter = bootstrapContext.lookup(Registries.CONFIGURED_FEATURE);

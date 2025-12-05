@@ -61,7 +61,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         wrapperLookup.lookupOrThrow(Registries.BLOCK)
             .filterElements(block -> block.defaultBlockState().canBeReplaced())
             .listElementIds()
-            .filter(key -> key.location().getNamespace().equals(InstantFeedback.MOD_ID))
+            .filter(key -> key.identifier().getNamespace().equals(InstantFeedback.MOD_ID))
             .forEach(builder::add);
     }
 }

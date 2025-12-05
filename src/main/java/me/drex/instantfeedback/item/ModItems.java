@@ -7,7 +7,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
@@ -50,11 +50,11 @@ public class ModItems {
     }
 
     private static ResourceKey<Item> vanillaItemId(String path) {
-        return ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(InstantFeedback.MOD_ID, path));
+        return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, path));
     }
 
     private static ResourceKey<Item> blockIdToItemId(ResourceKey<Block> resourceKey) {
-        return ResourceKey.create(Registries.ITEM, resourceKey.location());
+        return ResourceKey.create(Registries.ITEM, resourceKey.identifier());
     }
 
     public static Item registerBlock(Block block) {
