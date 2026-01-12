@@ -1,6 +1,7 @@
 package me.drex.instantfeedback;
 
 import me.drex.instantfeedback.block.ModBlocks;
+import me.drex.instantfeedback.config.ConfigManager;
 import me.drex.instantfeedback.entity.ModFrogVariants;
 import me.drex.instantfeedback.item.ModCauldronInteraction;
 import me.drex.instantfeedback.item.ModItems;
@@ -51,41 +52,48 @@ public class InstantFeedback implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        ConfigManager.load();
         Registry.register(BuiltInRegistries.PARTICLE_TYPE, Identifier.fromNamespaceAndPath(MOD_ID, "creaking_eyes"), CREAKING_EYES);
         Registry.register(BuiltInRegistries.PARTICLE_TYPE, Identifier.fromNamespaceAndPath(MOD_ID, "tinted_needles"), TINTED_NEEDLES);
         ModBlocks.initialize();
         ModItems.initialize();
-        BiomeModifications.create(Identifier.fromNamespaceAndPath(MOD_ID, "pale_garden_remove_spawn"))
-            .add(ModificationPhase.REMOVALS, context -> context.getBiomeKey() == Biomes.PALE_GARDEN, context -> {
-                context.getSpawnSettings().clearSpawns();
-            });
+        if (ConfigManager.config().theGardenAwakensRemoveMobSpawn) {
+            BiomeModifications.create(Identifier.fromNamespaceAndPath(MOD_ID, "pale_garden_remove_spawn"))
+                .add(ModificationPhase.REMOVALS, context -> context.getBiomeKey() == Biomes.PALE_GARDEN, context -> {
+                    context.getSpawnSettings().clearSpawns();
+                });
+        }
+        if (ConfigManager.config().theGardenAwakensWorldGen) {
+            BiomeModifications.create(Identifier.fromNamespaceAndPath(MOD_ID, "pale_garden_replace_vegetation"))
+                .add(ModificationPhase.REPLACEMENTS, context -> context.getBiomeKey() == Biomes.PALE_GARDEN, context -> {
+                    context.getGenerationSettings().removeFeature(VegetationPlacements.PALE_GARDEN_VEGETATION);
+                    context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModVegetationPlacements.PALE_GARDEN_VEGETATION);
+                });
+            BiomeModifications.addFeature(
+                context -> context.getBiomeKey() == Biomes.PALE_GARDEN,
+                GenerationStep.Decoration.VEGETAL_DECORATION,
+                ModVegetationPlacements.PATCH_PALE_PUMPKIN
+            );
+            BiomeModifications.addFeature(
+                context -> context.getBiomeKey() == Biomes.PALE_GARDEN,
+                GenerationStep.Decoration.VEGETAL_DECORATION,
+                ModVegetationPlacements.PILE_PALE_LEAVES
+            );
+            BiomeModifications.addFeature(
+                context -> context.getBiomeKey() == Biomes.PALE_GARDEN,
+                GenerationStep.Decoration.VEGETAL_DECORATION,
+                ModVegetationPlacements.PALE_VEGETATION
+            );
+        }
 
-        BiomeModifications.create(Identifier.fromNamespaceAndPath(MOD_ID, "pale_garden_replace_vegetation"))
-            .add(ModificationPhase.REPLACEMENTS, context -> context.getBiomeKey() == Biomes.PALE_GARDEN, context -> {
-                context.getGenerationSettings().removeFeature(VegetationPlacements.PALE_GARDEN_VEGETATION);
-                context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModVegetationPlacements.PALE_GARDEN_VEGETATION);
-            });
+        if (ConfigManager.config().theGardenAwakensFog) {
+            BiomeModifications.create(Identifier.fromNamespaceAndPath(MOD_ID, "pale_garden_environment_fog"))
+                .add(ModificationPhase.ADDITIONS, context -> context.getBiomeKey() == Biomes.PALE_GARDEN, context -> {
+                    context.getAttributes().setModifier(EnvironmentAttributes.FOG_END_DISTANCE, FloatModifier.MULTIPLY, 1 / 16f);
+                });
+        }
 
-        BiomeModifications.create(Identifier.fromNamespaceAndPath(MOD_ID, "pale_garden_environment_fog"))
-            .add(ModificationPhase.ADDITIONS, context -> context.getBiomeKey() == Biomes.PALE_GARDEN, context -> {
-                context.getAttributes().setModifier(EnvironmentAttributes.FOG_END_DISTANCE, FloatModifier.MULTIPLY, 1 / 16f);
-            });
 
-        BiomeModifications.addFeature(
-            context -> context.getBiomeKey() == Biomes.PALE_GARDEN,
-            GenerationStep.Decoration.VEGETAL_DECORATION,
-            ModVegetationPlacements.PATCH_PALE_PUMPKIN
-        );
-        BiomeModifications.addFeature(
-            context -> context.getBiomeKey() == Biomes.PALE_GARDEN,
-            GenerationStep.Decoration.VEGETAL_DECORATION,
-            ModVegetationPlacements.PILE_PALE_LEAVES
-        );
-        BiomeModifications.addFeature(
-            context -> context.getBiomeKey() == Biomes.PALE_GARDEN,
-            GenerationStep.Decoration.VEGETAL_DECORATION,
-            ModVegetationPlacements.PALE_VEGETATION
-        );
         LootTableEvents.MODIFY.register((key, tableBuilder, source, registries) -> {
             HolderGetter<EntityType<?>> entityTypes = registries.lookupOrThrow(Registries.ENTITY_TYPE);
             HolderGetter<FrogVariant> frogVariants = registries.lookupOrThrow(Registries.FROG_VARIANT);

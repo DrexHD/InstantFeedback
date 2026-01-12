@@ -4,6 +4,7 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import me.drex.instantfeedback.InstantFeedback;
 import me.drex.instantfeedback.block.ModBlockTags;
+import me.drex.instantfeedback.config.ConfigManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ColorParticleOption;
 import net.minecraft.core.particles.ParticleType;
@@ -23,7 +24,7 @@ public abstract class TintedParticleLeavesBlockMixin {
         )
     )
     public ParticleType<ColorParticleOption> needleParticles(Operation<ParticleType<ColorParticleOption>> original, Level level, BlockPos pos) {
-        if (level.getBlockState(pos).is(ModBlockTags.LEAVES_NEEDLES)) {
+        if (ConfigManager.config().springToLifeNeedleParticles && level.getBlockState(pos).is(ModBlockTags.LEAVES_NEEDLES)) {
             return InstantFeedback.TINTED_NEEDLES;
         }
         return original.call();

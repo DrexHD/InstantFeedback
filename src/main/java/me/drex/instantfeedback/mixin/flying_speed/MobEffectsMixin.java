@@ -4,6 +4,7 @@ import com.llamalad7.mixinextras.expression.Definition;
 import com.llamalad7.mixinextras.expression.Expression;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import me.drex.instantfeedback.config.ConfigManager;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffect;
@@ -24,6 +25,7 @@ public abstract class MobEffectsMixin {
         MobEffect instance, Holder<Attribute> holder, Identifier resourceLocation, double d,
         AttributeModifier.Operation operation, Operation<MobEffect> original
     ) {
+        if (!ConfigManager.config().chaseTheSkiesHappyGhastSpeed) return instance;
         MobEffect effect = original.call(instance, holder, resourceLocation, d, operation);
         effect.addAttributeModifier(Attributes.FLYING_SPEED, resourceLocation, d, operation);
         return effect;

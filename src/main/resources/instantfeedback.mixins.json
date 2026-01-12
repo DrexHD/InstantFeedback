@@ -7,7 +7,6 @@
   },
   "mixins": [
     "CreakingMixin",
-    "biome.OverworldBiomesMixin",
     "call_happy_ghast.GhastMoveControlMixin",
     "call_happy_ghast.HappyGhastMixin",
     "call_happy_ghast.InstrumentItemMixin",

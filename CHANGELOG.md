@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.1.0] - 2026-01-12
+### Added
+- Config to toggle specific features
+
 ## [3.0.1] - 2025-11-22
 ### Fixed
 - Spruce falling leave particle color

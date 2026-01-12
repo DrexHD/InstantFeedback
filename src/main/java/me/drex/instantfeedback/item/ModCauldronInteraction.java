@@ -1,5 +1,6 @@
 package me.drex.instantfeedback.item;
 
+import me.drex.instantfeedback.config.ConfigManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.stats.Stats;
@@ -16,9 +17,11 @@ import java.util.Map;
 public class ModCauldronInteraction {
     public static void bootstrap() {
         Map<Item, CauldronInteraction> map = CauldronInteraction.WATER.map();
-        for (BundleItem bundleItem : BundleItem.getAllBundleItemColors()) {
-            if (bundleItem.equals(Items.BUNDLE)) continue;
-            map.put(bundleItem, ModCauldronInteraction::bundleInteraction);
+        if (ConfigManager.config().chaseTheSkiesUndyeBundles) {
+            for (BundleItem bundleItem : BundleItem.getAllBundleItemColors()) {
+                if (bundleItem.equals(Items.BUNDLE)) continue;
+                map.put(bundleItem, ModCauldronInteraction::bundleInteraction);
+            }
         }
     }
 

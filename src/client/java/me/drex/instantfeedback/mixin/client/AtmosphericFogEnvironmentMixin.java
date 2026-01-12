@@ -6,6 +6,7 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Share;
 import com.llamalad7.mixinextras.sugar.ref.LocalFloatRef;
+import me.drex.instantfeedback.config.ConfigManager;
 import net.minecraft.client.Camera;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -32,7 +33,7 @@ public abstract class AtmosphericFogEnvironmentMixin {
         BlockPos blockPos = camera.blockPosition();
         Holder<Biome> biome = clientLevel.getBiome(blockPos);
         fogEndDividerRef.set(1);
-        if (biome.is(Biomes.PALE_GARDEN)) {
+        if (ConfigManager.config().theGardenAwakensFog && biome.is(Biomes.PALE_GARDEN)) {
             float nightMultiplier = (float) (Math.clamp(Math.cos(((clientLevel.getDayTime() - 18000) / 24000f) * Math.PI * 2), 0, 1) * 3) + 1;
             fogEndDividerRef.set(nightMultiplier);
         }

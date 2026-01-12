@@ -1,6 +1,7 @@
 package me.drex.instantfeedback.mixin.client;
 
 import me.drex.instantfeedback.InstantFeedback;
+import me.drex.instantfeedback.config.ConfigManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
@@ -26,7 +27,7 @@ public abstract class HangingMossBlockMixin {
         at = @At("HEAD")
     )
     public void addParticle(BlockState blockState, Level level, BlockPos blockPos, RandomSource randomSource, CallbackInfo ci) {
-        if (randomSource.nextInt(100) == 0 && level.isDarkOutside()) {
+        if (ConfigManager.config().theGardenAwakensAmbientParticles && randomSource.nextInt(100) == 0 && level.isDarkOutside()) {
             if (blockState.getValue(TIP)) {
                 level.addParticle(
                     InstantFeedback.CREAKING_EYES,

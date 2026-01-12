@@ -1,5 +1,6 @@
 package me.drex.instantfeedback.mixin;
 
+import me.drex.instantfeedback.config.ConfigManager;
 import net.minecraft.world.entity.monster.creaking.Creaking;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
@@ -12,15 +13,15 @@ public abstract class CreakingMixin {
         method = "createAttributes",
         constant = @Constant(doubleValue = 0.4000000059604645)
     )
-    private static double increaseMovementSpeed(double constant) {
-        return 0.45F;
+    private static double increaseMovementSpeed(double original) {
+        return ConfigManager.config().theGardenAwakensBuffCreaking ? 0.45F : original;
     }
 
     @ModifyConstant(
         method = "createAttributes",
         constant = @Constant(doubleValue = 3.0)
     )
-    private static double increaseAttackDamage(double constant) {
-        return 10;
+    private static double increaseAttackDamage(double original) {
+        return ConfigManager.config().theGardenAwakensBuffCreaking ? 10 : original;
     }
 }
