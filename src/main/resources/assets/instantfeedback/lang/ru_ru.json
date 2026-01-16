@@ -1,0 +1,18 @@
+{
+  "advancement.instantfeedback.end.ride_happy_ghast.title": "Друзья по самый хэппи-Энд",
+  "advancement.instantfeedback.end.ride_happy_ghast.description": "Приведите счастливого гаста в Энд!",
+  "block.instantfeedback.pale_pumpkin": "Бледная тыква",
+  "block.instantfeedback.carved_pale_pumpkin": "Вырезанная бледная тыква",
+  "block.instantfeedback.pale_bush": "Бледный куст",
+  "block.instantfeedback.tall_pale_bush": "Высокий бледный куст",
+  "block.instantfeedback.pale_rose": "Бледная роза",
+  "block.instantfeedback.cerulean_froglight": "Лазурная квампа",
+  "block.instantfeedback.potted_cactus_flower": "Цветок кактуса в горшке",
+  "block.instantfeedback.potted_lilac": "Сирень в горшке",
+  "block.instantfeedback.potted_pale_rose": "Бледная роза в горшке",
+  "block.instantfeedback.potted_peony": "Пион в горшке",
+  "block.instantfeedback.potted_pitcher_plant": "Кувшинница в горшке",
+  "block.instantfeedback.potted_rose_bush": "Розовый куст в горшке",
+  "block.instantfeedback.potted_sunflower": "Подсолнух в горшке",
+  "modmenu.descriptionTranslation.instantfeedback": "Добавляет самые популярные предложения с feedback.minecraft.net"
+}
