@@ -1,0 +1,7 @@
+{
+  "parent": "instantfeedback:block/tall_flower_pot_cross",
+  "textures": {
+    "plant_bottom": "instantfeedback:block/tall_pale_bush_bottom",
+    "plant_top": "instantfeedback:block/tall_pale_bush_top"
+  }
+}

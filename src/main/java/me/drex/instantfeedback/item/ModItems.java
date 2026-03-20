@@ -36,11 +36,11 @@ public class ModItems {
                     itemGroup.addAfter(Items.OPEN_EYEBLOSSOM, PALE_ROSE);
                     itemGroup.addAfter(Items.PALE_HANGING_MOSS, PALE_BUSH);
                     itemGroup.addAfter(PALE_BUSH, TALL_PALE_BUSH);
-                    itemGroup.addAfter(Blocks.PEARLESCENT_FROGLIGHT, CERULEAN_FROGLIGHT);
+                    itemGroup.addAfter(Blocks.VERDANT_FROGLIGHT, CERULEAN_FROGLIGHT);
                 });
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS)
                 .register((itemGroup) -> {
-                    itemGroup.addAfter(Blocks.PEARLESCENT_FROGLIGHT, CERULEAN_FROGLIGHT);
+                    itemGroup.addAfter(Blocks.VERDANT_FROGLIGHT, CERULEAN_FROGLIGHT);
                 });
     }
 

@@ -43,6 +43,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.PALE_ROSE);
 
         this.valueLookupBuilder(BlockTags.FLOWER_POTS)
+            .add(ModBlocks.POTTED_PALE_BUSH)
+            .add(ModBlocks.POTTED_TALL_PALE_BUSH)
             .add(ModBlocks.POTTED_PALE_ROSE)
             .add(ModBlocks.POTTED_CACTUS_FLOWER)
             .add(ModBlocks.POTTED_ROSE_BUSH)

@@ -4,7 +4,6 @@ import me.drex.instantfeedback.block.ModBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 
@@ -23,6 +22,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         this.dropSelf(ModBlocks.PALE_BUSH);
         this.add(ModBlocks.TALL_PALE_BUSH, block -> this.createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
         this.dropSelf(ModBlocks.CERULEAN_FROGLIGHT);
+        this.dropPottedContents(ModBlocks.POTTED_PALE_BUSH);
+        this.dropPottedContents(ModBlocks.POTTED_TALL_PALE_BUSH);
         this.dropPottedContents(ModBlocks.POTTED_PALE_ROSE);
         this.dropPottedContents(ModBlocks.POTTED_CACTUS_FLOWER);
         this.dropPottedContents(ModBlocks.POTTED_ROSE_BUSH);
