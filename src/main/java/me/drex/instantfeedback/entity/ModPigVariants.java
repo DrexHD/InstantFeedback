@@ -1,6 +1,7 @@
 package me.drex.instantfeedback.entity;
 
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBiomeTags;
+import net.minecraft.core.ClientAsset;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
@@ -22,6 +23,9 @@ public class ModPigVariants {
     public static void bootstrap(BootstrapContext<PigVariant> bootstrapContext) {
         var holderSet = bootstrapContext.lookup(Registries.BIOME).getOrThrow(ConventionalBiomeTags.IS_SWAMP);
         var spawnPrioritySelectors = SpawnPrioritySelectors.single(new BiomeCheck(holderSet), 1);
-        bootstrapContext.register(ModPigVariants.MUDDY, new PigVariant(new ModelAndTexture<>(PigVariant.ModelType.NORMAL, Identifier.fromNamespaceAndPath(MOD_ID, "entity/pig/muddy_pig")), spawnPrioritySelectors));
+        Identifier textureId = Identifier.fromNamespaceAndPath(MOD_ID, "entity/pig/muddy_pig");
+        Identifier babyTextureId = Identifier.fromNamespaceAndPath(MOD_ID, "entity/pig/muddy_pig_baby");
+
+        bootstrapContext.register(ModPigVariants.MUDDY, new PigVariant(new ModelAndTexture<>(PigVariant.ModelType.NORMAL, textureId), new ClientAsset.ResourceTexture(babyTextureId), spawnPrioritySelectors));
     }
 }

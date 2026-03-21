@@ -7,9 +7,7 @@
   },
   "client": [
     "AtmosphericFogEnvironmentMixin",
-    "snow_golem.SnowGolemHeadLayerMixin",
-    "snow_golem.SnowGolemRendererMixin",
-    "snow_golem.SnowGolemRenderStateMixin"
+    "snow_golem.SnowGolemRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

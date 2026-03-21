@@ -2,7 +2,8 @@ package me.drex.instantfeedback.item;
 
 import me.drex.instantfeedback.config.ConfigManager;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.cauldron.CauldronInteraction;
+import net.minecraft.core.cauldron.CauldronInteractions;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -12,15 +13,14 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.LayeredCauldronBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
-import java.util.Map;
-
 public class ModCauldronInteraction {
     public static void bootstrap() {
-        Map<Item, CauldronInteraction> map = CauldronInteraction.WATER.map();
         if (ConfigManager.config().chaseTheSkiesUndyeBundles) {
-            for (BundleItem bundleItem : BundleItem.getAllBundleItemColors()) {
-                if (bundleItem.equals(Items.BUNDLE)) continue;
-                map.put(bundleItem, ModCauldronInteraction::bundleInteraction);
+            for (Item item : BuiltInRegistries.ITEM) {
+                if (item instanceof BundleItem bundleItem) {
+                    if (bundleItem.equals(Items.BUNDLE)) continue;
+                    CauldronInteractions.WATER.put(bundleItem, ModCauldronInteraction::bundleInteraction);
+                }
             }
         }
     }

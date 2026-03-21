@@ -34,7 +34,7 @@ public abstract class AtmosphericFogEnvironmentMixin {
         Holder<Biome> biome = clientLevel.getBiome(blockPos);
         fogEndDividerRef.set(1);
         if (ConfigManager.config().theGardenAwakensFog && biome.is(Biomes.PALE_GARDEN)) {
-            float nightMultiplier = (float) (Math.clamp(Math.cos(((clientLevel.getDayTime() - 18000) / 24000f) * Math.PI * 2), 0, 1) * 3) + 1;
+            float nightMultiplier = (float) (Math.clamp(Math.cos(((clientLevel.getDefaultClockTime() - 18000) / 24000f) * Math.PI * 2), 0, 1) * 3) + 1;
             fogEndDividerRef.set(nightMultiplier);
         }
     }

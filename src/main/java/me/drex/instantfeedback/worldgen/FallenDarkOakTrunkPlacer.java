@@ -7,7 +7,7 @@ import me.drex.instantfeedback.InstantFeedback;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.LevelSimulatedReader;
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
@@ -34,7 +34,7 @@ public class FallenDarkOakTrunkPlacer extends TrunkPlacer {
 
     @Override
     public List<FoliagePlacer.FoliageAttachment> placeTrunk(
-        LevelSimulatedReader levelSimulatedReader,
+        WorldGenLevel level,
         BiConsumer<BlockPos, BlockState> biConsumer,
         RandomSource randomSource,
         int maxHeight,
@@ -46,10 +46,10 @@ public class FallenDarkOakTrunkPlacer extends TrunkPlacer {
 
         BlockPos below = origin.below();
 
-//        setDirtAt(levelSimulatedReader, biConsumer, randomSource, below, treeConfiguration);
-//        setDirtAt(levelSimulatedReader, biConsumer, randomSource, below.east(), treeConfiguration);
-//        setDirtAt(levelSimulatedReader, biConsumer, randomSource, below.south(), treeConfiguration);
-//        setDirtAt(levelSimulatedReader, biConsumer, randomSource, below.south().east(), treeConfiguration);
+//        setDirtAt(level, biConsumer, randomSource, below, treeConfiguration);
+//        setDirtAt(level, biConsumer, randomSource, below.east(), treeConfiguration);
+//        setDirtAt(level, biConsumer, randomSource, below.south(), treeConfiguration);
+//        setDirtAt(level, biConsumer, randomSource, below.south().east(), treeConfiguration);
 
         BiConsumer<BlockPos, BlockState> transformedBiConsumer = (pos, state) -> {
             biConsumer.accept(pos, state.setValue(RotatedPillarBlock.AXIS, fallDirection.getAxis()));
@@ -74,11 +74,11 @@ public class FallenDarkOakTrunkPlacer extends TrunkPlacer {
 
             int y = originY + dy;
             BlockPos pos = new BlockPos(x, y, z);
-            if (TreeFeature.isAirOrLeaves(levelSimulatedReader, transform(pos, fallDirection, origin))) {
-                this.placeLog(levelSimulatedReader, transformedBiConsumer, randomSource, transform(pos, fallDirection, origin), treeConfiguration);
-                this.placeLog(levelSimulatedReader, transformedBiConsumer, randomSource, transform(pos.east(), fallDirection, origin), treeConfiguration);
-                this.placeLog(levelSimulatedReader, transformedBiConsumer, randomSource, transform(pos.south(), fallDirection, origin), treeConfiguration);
-                this.placeLog(levelSimulatedReader, transformedBiConsumer, randomSource, transform(pos.east().south(), fallDirection, origin), treeConfiguration);
+            if (TreeFeature.isAirOrLeaves(level, transform(pos, fallDirection, origin))) {
+                this.placeLog(level, transformedBiConsumer, randomSource, transform(pos, fallDirection, origin), treeConfiguration);
+                this.placeLog(level, transformedBiConsumer, randomSource, transform(pos.east(), fallDirection, origin), treeConfiguration);
+                this.placeLog(level, transformedBiConsumer, randomSource, transform(pos.south(), fallDirection, origin), treeConfiguration);
+                this.placeLog(level, transformedBiConsumer, randomSource, transform(pos.east().south(), fallDirection, origin), treeConfiguration);
             }
         }
 
@@ -90,7 +90,7 @@ public class FallenDarkOakTrunkPlacer extends TrunkPlacer {
                     int t = randomSource.nextInt(3) + 2;
 
                     for (int u = 0; u < t; u++) {
-                        this.placeLog(levelSimulatedReader, transformedBiConsumer, randomSource, transformed(originX + dx, topY - u - 1, originZ + dz, fallDirection, origin), treeConfiguration);
+                        this.placeLog(level, transformedBiConsumer, randomSource, transformed(originX + dx, topY - u - 1, originZ + dz, fallDirection, origin), treeConfiguration);
                     }
 
                     list.add(new FoliagePlacer.FoliageAttachment(transformed(x + dx, topY, z + dz, fallDirection, origin), 0, false));

@@ -60,7 +60,7 @@ public class InstantFeedback implements ModInitializer {
         if (ConfigManager.config().theGardenAwakensRemoveMobSpawn) {
             BiomeModifications.create(Identifier.fromNamespaceAndPath(MOD_ID, "pale_garden_remove_spawn"))
                 .add(ModificationPhase.REMOVALS, context -> context.getBiomeKey() == Biomes.PALE_GARDEN, context -> {
-                    context.getSpawnSettings().clearSpawns();
+                    context.getMobSpawnSettings().clearSpawns();
                 });
         }
         if (ConfigManager.config().theGardenAwakensWorldGen) {
@@ -77,7 +77,7 @@ public class InstantFeedback implements ModInitializer {
             BiomeModifications.addFeature(
                 context -> context.getBiomeKey() == Biomes.PALE_GARDEN,
                 GenerationStep.Decoration.VEGETAL_DECORATION,
-                ModVegetationPlacements.PILE_PALE_LEAVES
+                VegetationPlacements.PATCH_LEAF_LITTER
             );
             BiomeModifications.addFeature(
                 context -> context.getBiomeKey() == Biomes.PALE_GARDEN,

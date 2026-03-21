@@ -2,7 +2,7 @@ package me.drex.instantfeedback.item;
 
 import me.drex.instantfeedback.InstantFeedback;
 import me.drex.instantfeedback.block.ModBlocks;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -29,18 +29,18 @@ public class ModItems {
     public static final Item CERULEAN_FROGLIGHT = registerBlock(ModBlocks.CERULEAN_FROGLIGHT);
 
     public static void initialize() {
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.NATURAL_BLOCKS)
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.NATURAL_BLOCKS)
                 .register((itemGroup) -> {
-                    itemGroup.addAfter(Items.JACK_O_LANTERN, PALE_PUMPKIN);
-                    itemGroup.addAfter(PALE_PUMPKIN, CARVED_PALE_PUMPKIN);
-                    itemGroup.addAfter(Items.OPEN_EYEBLOSSOM, PALE_ROSE);
-                    itemGroup.addAfter(Items.PALE_HANGING_MOSS, PALE_BUSH);
-                    itemGroup.addAfter(PALE_BUSH, TALL_PALE_BUSH);
-                    itemGroup.addAfter(Blocks.VERDANT_FROGLIGHT, CERULEAN_FROGLIGHT);
+                    itemGroup.insertAfter(Items.JACK_O_LANTERN, PALE_PUMPKIN);
+                    itemGroup.insertAfter(PALE_PUMPKIN, CARVED_PALE_PUMPKIN);
+                    itemGroup.insertAfter(Items.OPEN_EYEBLOSSOM, PALE_ROSE);
+                    itemGroup.insertAfter(Items.PALE_HANGING_MOSS, PALE_BUSH);
+                    itemGroup.insertAfter(PALE_BUSH, TALL_PALE_BUSH);
+                    itemGroup.insertAfter(Blocks.VERDANT_FROGLIGHT, CERULEAN_FROGLIGHT);
                 });
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS)
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS)
                 .register((itemGroup) -> {
-                    itemGroup.addAfter(Blocks.VERDANT_FROGLIGHT, CERULEAN_FROGLIGHT);
+                    itemGroup.insertAfter(Blocks.VERDANT_FROGLIGHT, CERULEAN_FROGLIGHT);
                 });
     }
 

@@ -1,5 +1,6 @@
 {
   "asset_id": "instantfeedback:entity/pig/muddy_pig",
+  "baby_asset_id": "instantfeedback:entity/pig/muddy_pig_baby",
   "spawn_conditions": [
     {
       "condition": {

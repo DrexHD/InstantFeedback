@@ -6,12 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.2.0] - 2026-03-21
 ### Added
 - Potted Pale Bush
 - Potted Tall Pale Bush
+- Baby Muddy Pig
 
 ### Changed
 - Pale bush and Tall Pale Bush now have a random offset
+- Reduced Creaking Eyes particle spawn chance
+- Replaced Leave blocks with Leaf Litter
 
 ## [3.1.0] - 2026-01-12
 ### Added
