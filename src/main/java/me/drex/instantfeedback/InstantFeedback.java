@@ -64,6 +64,11 @@ public class InstantFeedback implements ModInitializer {
                 });
         }
         if (ConfigManager.config().theGardenAwakensWorldGen) {
+            BiomeModifications.addFeature(
+                context -> context.getBiomeKey() == Biomes.PALE_GARDEN,
+                GenerationStep.Decoration.VEGETAL_DECORATION,
+                ModVegetationPlacements.PATCH_LEAF_LITTER
+            );
             BiomeModifications.create(Identifier.fromNamespaceAndPath(MOD_ID, "pale_garden_replace_vegetation"))
                 .add(ModificationPhase.REPLACEMENTS, context -> context.getBiomeKey() == Biomes.PALE_GARDEN, context -> {
                     context.getGenerationSettings().removeFeature(VegetationPlacements.PALE_GARDEN_VEGETATION);
@@ -73,11 +78,6 @@ public class InstantFeedback implements ModInitializer {
                 context -> context.getBiomeKey() == Biomes.PALE_GARDEN,
                 GenerationStep.Decoration.VEGETAL_DECORATION,
                 ModVegetationPlacements.PATCH_PALE_PUMPKIN
-            );
-            BiomeModifications.addFeature(
-                context -> context.getBiomeKey() == Biomes.PALE_GARDEN,
-                GenerationStep.Decoration.VEGETAL_DECORATION,
-                VegetationPlacements.PATCH_LEAF_LITTER
             );
             BiomeModifications.addFeature(
                 context -> context.getBiomeKey() == Biomes.PALE_GARDEN,

@@ -6,8 +6,10 @@ import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
+import net.minecraft.util.Util;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -21,6 +23,7 @@ public class ModVegetationPlacements {
     public static final ResourceKey<PlacedFeature> PALE_VEGETATION = ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, "pale_vegetation"));
     public static final ResourceKey<PlacedFeature> FALLEN_PALE_OAK_CREAKING = ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, "fallen_pale_oak_creaking"));
     public static final ResourceKey<PlacedFeature> PALE_GARDEN_VEGETATION = ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, "pale_garden_vegetation"));
+    public static final ResourceKey<PlacedFeature> PATCH_LEAF_LITTER = ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, "patch_leaf_litter"));
 
     public static void bootstrap(BootstrapContext<PlacedFeature> bootstrapContext) {
         HolderGetter<ConfiguredFeature<?, ?>> holderGetter = bootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
@@ -28,6 +31,7 @@ public class ModVegetationPlacements {
         var paleVegetation = holderGetter.getOrThrow(ModVegetationFeatures.PALE_VEGETATION);
         var fallenPaleOakCreaking = holderGetter.getOrThrow(ModVegetationFeatures.FALLEN_PALE_OAK_CREAKING);
         var paleGardenVegetation = holderGetter.getOrThrow(ModVegetationFeatures.PALE_GARDEN_VEGETATION);
+        var leafLitter = holderGetter.getOrThrow(ModVegetationFeatures.LEAF_LITTER);
 
         PlacementUtils.register(
             bootstrapContext,
@@ -62,6 +66,22 @@ public class ModVegetationPlacements {
             SurfaceWaterDepthFilter.forMaxDepth(0),
             PlacementUtils.HEIGHTMAP_OCEAN_FLOOR,
             BiomeFilter.biome()
+        );
+
+        PlacementUtils.register(
+            bootstrapContext,
+            PATCH_LEAF_LITTER,
+            leafLitter,
+            Util.copyAndAdd(
+                VegetationPlacements.worldSurfaceSquaredWithCount(2),
+                CountPlacement.of(32),
+                RandomOffsetPlacement.ofTriangle(7, 3),
+                BlockPredicateFilter.forPredicate(
+                    BlockPredicate.allOf(
+                        BlockPredicate.ONLY_IN_AIR_PREDICATE,
+                        BlockPredicate.matchesBlocks(Direction.DOWN.getUnitVec3i(), Blocks.GRASS_BLOCK, Blocks.PALE_MOSS_BLOCK))
+                )
+            )
         );
 
     }

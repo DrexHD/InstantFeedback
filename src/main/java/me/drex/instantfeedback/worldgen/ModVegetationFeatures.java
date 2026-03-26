@@ -10,6 +10,7 @@ import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
+import net.minecraft.data.worldgen.features.VegetationFeatures;
 import net.minecraft.data.worldgen.placement.TreePlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
@@ -41,6 +42,7 @@ public class ModVegetationFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> PALE_VEGETATION = ResourceKey.create(Registries.CONFIGURED_FEATURE, Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, "pale_vegetation"));
     public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_PALE_OAK_CREAKING = ResourceKey.create(Registries.CONFIGURED_FEATURE, Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, "fallen_pale_oak_creaking"));
     public static final ResourceKey<ConfiguredFeature<?, ?>> PALE_GARDEN_VEGETATION = ResourceKey.create(Registries.CONFIGURED_FEATURE, Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, "pale_garden_vegetation"));
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LEAF_LITTER = ResourceKey.create(Registries.CONFIGURED_FEATURE, Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, "leaf_litter"));
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> bootstrapContext) {
         HolderGetter<PlacedFeature> placedFeatures = bootstrapContext.lookup(Registries.PLACED_FEATURE);
@@ -109,6 +111,12 @@ public class ModVegetationFeatures {
             )
         );
 
+        FeatureUtils.register(
+            bootstrapContext,
+            LEAF_LITTER,
+            Feature.SIMPLE_BLOCK,
+            new SimpleBlockConfiguration(new WeightedStateProvider(VegetationFeatures.leafLitterPatchBuilder(1, 3)))
+        );
     }
 
 }
