@@ -3,6 +3,7 @@ package me.drex.instantfeedback.config;
 public class Config {
     // Tiny Takeover
     public boolean tinyTakeoverSnifferDigGoldenDandelion = true;
+    public boolean tinyTakeoverClockUtility = true;
 
     // Chase the Skies
     public boolean chaseTheSkiesHappyGhastSpeed = true;

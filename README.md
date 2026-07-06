@@ -1,5 +1,12 @@
 A fabric mod implementing features requested on minecraft feedback pages!
 
+# Tiny Takeover
+
+Feedback: [Tiny Takeover](https://feedback.minecraft.net/hc/en-us/community/topics/42999231628301-Tiny-Takeover)
+
+- Right-click a clock to save the time and put it into an item frame to get a redstone signal every day at that time
+- Sniffers can now dig out golden dandelions
+
 # Chase the Skies
 
 Feedback: [Chase the Skies](https://feedback.minecraft.net/hc/en-us/community/topics/35301401438605-Chase-the-Skies)

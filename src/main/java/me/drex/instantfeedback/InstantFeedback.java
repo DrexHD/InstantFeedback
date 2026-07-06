@@ -4,6 +4,7 @@ import me.drex.instantfeedback.block.ModBlocks;
 import me.drex.instantfeedback.config.ConfigManager;
 import me.drex.instantfeedback.entity.ModFrogVariants;
 import me.drex.instantfeedback.item.ModCauldronInteraction;
+import me.drex.instantfeedback.item.component.ModDataComponents;
 import me.drex.instantfeedback.item.ModItems;
 import me.drex.instantfeedback.worldgen.FallenDarkOakTrunkPlacer;
 import me.drex.instantfeedback.worldgen.ModVegetationPlacements;
@@ -59,6 +60,7 @@ public class InstantFeedback implements ModInitializer {
         Registry.register(BuiltInRegistries.PARTICLE_TYPE, Identifier.fromNamespaceAndPath(MOD_ID, "tinted_needles"), TINTED_NEEDLES);
         ModBlocks.initialize();
         ModItems.initialize();
+        ModDataComponents.initialize();
         if (ConfigManager.config().theGardenAwakensRemoveMobSpawn) {
             BiomeModifications.create(Identifier.fromNamespaceAndPath(MOD_ID, "pale_garden_remove_spawn"))
                 .add(ModificationPhase.REMOVALS, context -> context.getBiomeKey() == Biomes.PALE_GARDEN, context -> {

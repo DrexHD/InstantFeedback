@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Sniffers can now dig out golden dandelions
+- More utility for the clock
 
 ## [3.2.1] - 2026-03-26
 ### Fixed
