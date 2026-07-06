@@ -1,6 +1,8 @@
 {
   "advancement.instantfeedback.end.ride_happy_ghast.title": "Friends 'Till The End",
   "advancement.instantfeedback.end.ride_happy_ghast.description": "Bring a Happy Ghast into the End dimension!",
+  "item.instantfeedback.saved_time": "Alarm Time: %s",
+  "item.instantfeedback.saved_time_clock": "Alarm Clock",
   "block.instantfeedback.pale_pumpkin": "Pale Pumpkin",
   "block.instantfeedback.carved_pale_pumpkin": "Carved Pale Pumpkin",
   "block.instantfeedback.pale_bush": "Pale Bush",

@@ -10,6 +10,7 @@ import net.minecraft.core.particles.ColorParticleOption;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.TintedParticleLeavesBlock;
+import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
@@ -20,7 +21,8 @@ public abstract class TintedParticleLeavesBlockMixin {
         method = "spawnFallingLeavesParticle",
         at = @At(
             value = "FIELD",
-            target = "Lnet/minecraft/core/particles/ParticleTypes;TINTED_LEAVES:Lnet/minecraft/core/particles/ParticleType;"
+            target = "Lnet/minecraft/core/particles/ParticleTypes;TINTED_LEAVES:Lnet/minecraft/core/particles/ParticleType;",
+            opcode = Opcodes.GETSTATIC
         )
     )
     public ParticleType<ColorParticleOption> needleParticles(Operation<ParticleType<ColorParticleOption>> original, Level level, BlockPos pos) {

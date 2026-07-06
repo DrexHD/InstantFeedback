@@ -7,9 +7,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -121,20 +119,9 @@ public class ModBlocks {
     public static void initialize() {
     }
 
-    public static Block register(Block block, String path) {
-        Identifier id = Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, path);
-        BlockItem blockItem = new BlockItem(block, new Item.Properties());
-        Registry.register(BuiltInRegistries.ITEM, id, blockItem);
-        return Registry.register(BuiltInRegistries.BLOCK, id, block);
-    }
-
     public static Block register(ResourceKey<Block> resourceKey, Function<BlockBehaviour.Properties, Block> function, BlockBehaviour.Properties properties) {
         Block block = function.apply(properties.setId(resourceKey));
         return Registry.register(BuiltInRegistries.BLOCK, resourceKey, block);
-    }
-
-    public static Block register(ResourceKey<Block> resourceKey, BlockBehaviour.Properties properties) {
-        return register(resourceKey, Block::new, properties);
     }
 
     private static ResourceKey<Block> blockId(String path) {
@@ -143,10 +130,6 @@ public class ModBlocks {
 
     private static Block register(String string, Function<BlockBehaviour.Properties, Block> function, BlockBehaviour.Properties properties) {
         return register(blockId(string), function, properties);
-    }
-
-    private static Block register(String string, BlockBehaviour.Properties properties) {
-        return register(string, Block::new, properties);
     }
 
 }

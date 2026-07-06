@@ -1,19 +1,20 @@
 {
-  "required": true,
-  "package": "me.drex.instantfeedback.mixin.client",
-  "compatibilityLevel": "JAVA_21",
-  "mixinextras": {
-    "minVersion": "0.5.0"
-  },
-  "client": [
-    "AtmosphericFogEnvironmentMixin",
-    "snow_golem.SnowGolemRendererMixin"
-  ],
-  "injectors": {
-    "defaultRequire": 1
-  },
-  "mixins": [
-    "HangingMossBlockMixin",
-    "TintedParticleLeavesBlockMixin"
-  ]
+	"required": true,
+	"package": "me.drex.instantfeedback.mixin.client",
+	"compatibilityLevel": "JAVA_21",
+	"mixinextras": {
+		"minVersion": "0.5.0"
+	},
+	"client": [
+		"AtmosphericFogEnvironmentMixin",
+		"snow_golem.SnowGolemRendererMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"mixins": [
+		"HangingMossBlockMixin",
+		"TintedParticleLeavesBlockMixin",
+		"clock.TimeMixin"
+	]
 }

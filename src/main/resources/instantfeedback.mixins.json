@@ -1,19 +1,21 @@
 {
-  "required": true,
-  "package": "me.drex.instantfeedback.mixin",
-  "compatibilityLevel": "JAVA_21",
-  "mixinextras": {
-    "minVersion": "0.5.0"
-  },
-  "mixins": [
-    "CreakingMixin",
-    "call_happy_ghast.GhastMoveControlMixin",
-    "call_happy_ghast.HappyGhastMixin",
-    "call_happy_ghast.InstrumentItemMixin",
-    "flying_speed.MobEffectsMixin",
-    "snow_golem.SnowGolemMixin"
-  ],
-  "injectors": {
-    "defaultRequire": 1
-  }
+	"required": true,
+	"package": "me.drex.instantfeedback.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixinextras": {
+		"minVersion": "0.5.0"
+	},
+	"mixins": [
+		"CreakingMixin",
+		"call_happy_ghast.GhastMoveControlMixin",
+		"call_happy_ghast.HappyGhastMixin",
+		"call_happy_ghast.InstrumentItemMixin",
+		"clock.ItemFrameMixin",
+		"clock.ItemsMixin",
+		"flying_speed.MobEffectsMixin",
+		"snow_golem.SnowGolemMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
 }
