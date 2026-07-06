@@ -1,15 +1,13 @@
 package me.drex.instantfeedback.block;
 
-import me.drex.instantfeedback.InstantFeedback;
+import me.drex.instantfeedback.references.ModBlockIds;
+import me.drex.instantfeedback.references.ModBlockItemIds;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
+import net.minecraft.references.BlockItemId;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -21,7 +19,7 @@ import java.util.function.Function;
 public class ModBlocks {
 
     public static final Block PALE_PUMPKIN = register(
-        "pale_pumpkin",
+        ModBlockItemIds.PALE_PUMPKIN,
         PalePumpkinBlock::new,
         BlockBehaviour.Properties.of()
             .mapColor(MapColor.COLOR_LIGHT_GRAY)
@@ -32,7 +30,7 @@ public class ModBlocks {
     );
 
     public static final Block CARVED_PALE_PUMPKIN = register(
-        "carved_pale_pumpkin",
+        ModBlockItemIds.CARVED_PALE_PUMPKIN,
         CarvedPalePumpkinBlock::new,
         BlockBehaviour.Properties.of()
             .mapColor(MapColor.COLOR_LIGHT_GRAY)
@@ -43,7 +41,7 @@ public class ModBlocks {
     );
 
     public static final Block PALE_ROSE = register(
-        "pale_rose",
+        ModBlockItemIds.PALE_ROSE,
         properties -> new FlowerBlock(MobEffects.GLOWING, 5.0F, properties),
         BlockBehaviour.Properties.of()
             .mapColor(DyeColor.WHITE)
@@ -54,7 +52,7 @@ public class ModBlocks {
             .pushReaction(PushReaction.DESTROY));
 
     public static final Block PALE_BUSH = register(
-        "pale_bush",
+        ModBlockItemIds.PALE_BUSH,
         DryVegetationBlock::new,
         BlockBehaviour.Properties.of()
             .mapColor(MapColor.TERRACOTTA_BROWN)
@@ -68,7 +66,7 @@ public class ModBlocks {
     );
 
     public static final Block TALL_PALE_BUSH = register(
-        "tall_pale_bush",
+        ModBlockItemIds.TALL_PALE_BUSH,
         TallFlowerBlock::new,
         BlockBehaviour.Properties.of()
             .mapColor(MapColor.TERRACOTTA_BROWN)
@@ -82,7 +80,7 @@ public class ModBlocks {
     );
 
     public static final Block CERULEAN_FROGLIGHT = register(
-            "cerulean_froglight",
+            ModBlockItemIds.CERULEAN_FROGLIGHT,
             RotatedPillarBlock::new,
             BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_LIGHT_BLUE)
@@ -91,41 +89,34 @@ public class ModBlocks {
                     .lightLevel(blockStatex -> 15)
     );
 
-    public static final Block POTTED_PALE_BUSH = register("potted_pale_bush",
+    public static final Block POTTED_PALE_BUSH = register(ModBlockIds.POTTED_PALE_BUSH,
         properties -> new FlowerPotBlock(PALE_BUSH, properties), Blocks.flowerPotProperties());
 
-    public static final Block POTTED_TALL_PALE_BUSH = register("potted_tall_pale_bush",
+    public static final Block POTTED_TALL_PALE_BUSH = register(ModBlockIds.POTTED_TALL_PALE_BUSH,
         properties -> new FlowerPotBlock(TALL_PALE_BUSH, properties), Blocks.flowerPotProperties());
 
-    public static final Block POTTED_PALE_ROSE = register("potted_pale_rose",
+    public static final Block POTTED_PALE_ROSE = register(ModBlockIds.POTTED_PALE_ROSE,
         properties -> new FlowerPotBlock(PALE_ROSE, properties), Blocks.flowerPotProperties());
 
-    public static final Block POTTED_CACTUS_FLOWER = register("potted_cactus_flower",
+    public static final Block POTTED_CACTUS_FLOWER = register(ModBlockIds.POTTED_CACTUS_FLOWER,
         properties -> new FlowerPotBlock(Blocks.CACTUS_FLOWER, properties), Blocks.flowerPotProperties());
 
-    public static final Block POTTED_ROSE_BUSH = register("potted_rose_bush",
+    public static final Block POTTED_ROSE_BUSH = register(ModBlockIds.POTTED_ROSE_BUSH,
         properties -> new FlowerPotBlock(Blocks.ROSE_BUSH, properties), Blocks.flowerPotProperties());
 
-    public static final Block POTTED_PEONY = register("potted_peony",
+    public static final Block POTTED_PEONY = register(ModBlockIds.POTTED_PEONY,
         properties -> new FlowerPotBlock(Blocks.PEONY, properties), Blocks.flowerPotProperties());
 
-    public static final Block POTTED_LILAC = register("potted_lilac",
+    public static final Block POTTED_LILAC = register(ModBlockIds.POTTED_LILAC,
         properties -> new FlowerPotBlock(Blocks.LILAC, properties), Blocks.flowerPotProperties());
 
-    public static final Block POTTED_SUNFLOWER = register("potted_sunflower",
+    public static final Block POTTED_SUNFLOWER = register(ModBlockIds.POTTED_SUNFLOWER,
         properties -> new FlowerPotBlock(Blocks.SUNFLOWER, properties), Blocks.flowerPotProperties());
 
-    public static final Block POTTED_PITCHER_PLANT = register("potted_pitcher_plant",
+    public static final Block POTTED_PITCHER_PLANT = register(ModBlockIds.POTTED_PITCHER_PLANT,
         properties -> new FlowerPotBlock(Blocks.PITCHER_PLANT, properties), Blocks.flowerPotProperties());
 
     public static void initialize() {
-    }
-
-    public static Block register(Block block, String path) {
-        Identifier id = Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, path);
-        BlockItem blockItem = new BlockItem(block, new Item.Properties());
-        Registry.register(BuiltInRegistries.ITEM, id, blockItem);
-        return Registry.register(BuiltInRegistries.BLOCK, id, block);
     }
 
     public static Block register(ResourceKey<Block> resourceKey, Function<BlockBehaviour.Properties, Block> function, BlockBehaviour.Properties properties) {
@@ -137,16 +128,12 @@ public class ModBlocks {
         return register(resourceKey, Block::new, properties);
     }
 
-    private static ResourceKey<Block> blockId(String path) {
-        return ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, path));
+    private static Block register(BlockItemId id, Function<BlockBehaviour.Properties, Block> function, BlockBehaviour.Properties properties) {
+        return register(id.block(), function, properties);
     }
 
-    private static Block register(String string, Function<BlockBehaviour.Properties, Block> function, BlockBehaviour.Properties properties) {
-        return register(blockId(string), function, properties);
-    }
-
-    private static Block register(String string, BlockBehaviour.Properties properties) {
-        return register(string, Block::new, properties);
+    private static Block register(BlockItemId id, BlockBehaviour.Properties properties) {
+        return register(id.block(), Block::new, properties);
     }
 
 }

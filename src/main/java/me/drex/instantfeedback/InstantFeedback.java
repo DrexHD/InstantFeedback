@@ -12,9 +12,8 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
-import net.minecraft.advancements.criterion.DamageSourcePredicate;
-import net.minecraft.advancements.criterion.DataComponentMatchers;
-import net.minecraft.advancements.criterion.EntityPredicate;
+import net.minecraft.advancements.predicates.DataComponentMatchers;
+import net.minecraft.advancements.predicates.entity.EntityPredicate;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponentExactPredicate;
@@ -29,6 +28,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.world.attribute.EnvironmentAttributes;
 import net.minecraft.world.attribute.modifier.FloatModifier;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.animal.frog.FrogVariant;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -97,17 +97,17 @@ public class InstantFeedback implements ModInitializer {
         LootTableEvents.MODIFY.register((key, tableBuilder, source, registries) -> {
             HolderGetter<EntityType<?>> entityTypes = registries.lookupOrThrow(Registries.ENTITY_TYPE);
             HolderGetter<FrogVariant> frogVariants = registries.lookupOrThrow(Registries.FROG_VARIANT);
-            var magmaCube = EntityType.MAGMA_CUBE.getDefaultLootTable();
+            var magmaCube = EntityTypes.MAGMA_CUBE.getDefaultLootTable();
             if (magmaCube.isPresent() && magmaCube.get() == key && source.isBuiltin()) {
                 tableBuilder.modifyPools(builder -> {
                     builder.add(
                         LootItem.lootTableItem(ModItems.CERULEAN_FROGLIGHT)
                             .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)))
                             .when(DamageSourceCondition.hasDamageSource(
-                                DamageSourcePredicate.Builder.damageType()
+                                net.minecraft.advancements.predicates.DamageSourcePredicate.Builder.damageType()
                                     .source(
                                         EntityPredicate.Builder.entity()
-                                            .of(entityTypes, EntityType.FROG)
+                                            .of(entityTypes, EntityTypes.FROG)
                                             .components(
                                                 DataComponentMatchers.Builder.components()
                                                     .exact(DataComponentExactPredicate.expect(DataComponents.FROG_VARIANT, frogVariants.getOrThrow(ModFrogVariants.DARK)))
@@ -123,7 +123,7 @@ public class InstantFeedback implements ModInitializer {
         ModCauldronInteraction.bootstrap();
     }
 
-    public static String id(String path) {
-        return Identifier.fromNamespaceAndPath(MOD_ID, path).toString();
+    public static Identifier id(String path) {
+        return Identifier.fromNamespaceAndPath(MOD_ID, path);
     }
 }

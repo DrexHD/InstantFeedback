@@ -8,8 +8,8 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "minecraft:happy_ghast",
-              "location": {
+              "minecraft:entity_type": "minecraft:happy_ghast",
+              "minecraft:location": {
                 "dimension": "minecraft:the_end"
               }
             }

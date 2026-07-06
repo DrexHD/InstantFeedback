@@ -2,13 +2,14 @@ package me.drex.instantfeedback.block;
 
 import com.mojang.serialization.MapCodec;
 import me.drex.instantfeedback.duck.ISnowGolem;
-import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.advancements.triggers.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.animal.golem.IronGolem;
 import net.minecraft.world.entity.animal.golem.SnowGolem;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -70,7 +71,7 @@ public class CarvedPalePumpkinBlock extends HorizontalDirectionalBlock {
     private void trySpawnGolem(Level level, BlockPos blockPos) {
         BlockPattern.BlockPatternMatch blockPatternMatch = this.getOrCreateSnowGolemFull().find(level, blockPos);
         if (blockPatternMatch != null) {
-            SnowGolem snowGolem = EntityType.SNOW_GOLEM.create(level, EntitySpawnReason.TRIGGERED);
+            SnowGolem snowGolem = EntityTypes.SNOW_GOLEM.create(level, EntitySpawnReason.TRIGGERED);
             if (snowGolem != null) {
                 snowGolem.setPumpkin(false);
                 ((ISnowGolem) snowGolem).instantfeedback$setPalePumpkin(true);
@@ -79,7 +80,7 @@ public class CarvedPalePumpkinBlock extends HorizontalDirectionalBlock {
         } else {
             BlockPattern.BlockPatternMatch blockPatternMatch2 = this.getOrCreateIronGolemFull().find(level, blockPos);
             if (blockPatternMatch2 != null) {
-                IronGolem ironGolem = EntityType.IRON_GOLEM.create(level, EntitySpawnReason.TRIGGERED);
+                IronGolem ironGolem = EntityTypes.IRON_GOLEM.create(level, EntitySpawnReason.TRIGGERED);
                 if (ironGolem != null) {
                     ironGolem.setPlayerCreated(true);
                     spawnGolemInWorld(level, blockPatternMatch2, ironGolem, blockPatternMatch2.getBlock(1, 2, 0).getPos());

@@ -16,6 +16,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.random.WeightedList;
 import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -66,6 +67,8 @@ public class ModVegetationFeatures {
             )
         );
 
+        HolderGetter<Biome> biomes = bootstrapContext.lookup(Registries.BIOME);
+        BlockStateProvider belowTrunkProvider = TreeConfiguration.defaultPlaceBelowTreeTrunkProvider(biomes);
         FeatureUtils.register(
             bootstrapContext,
             PALE_VEGETATION,
@@ -90,7 +93,8 @@ public class ModVegetationFeatures {
                 new FallenDarkOakTrunkPlacer(6, 2, 1),
                 BlockStateProvider.simple(Blocks.PALE_OAK_LEAVES),
                 new DarkOakFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0)),
-                new ThreeLayersFeatureSize(1, 1, 0, 1, 2, OptionalInt.empty())
+                new ThreeLayersFeatureSize(1, 1, 0, 1, 2, OptionalInt.empty()),
+                belowTrunkProvider
             )
                 .decorators(ImmutableList.of(new PaleMossDecorator(0.25F, 0.8F, 0.8F), new CreakingHeartDecorator(1.0F)))
                 .ignoreVines()
