@@ -13,6 +13,7 @@
 		"clock.ItemFrameMixin",
 		"clock.ItemsMixin",
 		"flying_speed.MobEffectsMixin",
+		"golden_dandelion.BlocksMixin",
 		"snow_golem.SnowGolemMixin"
 	],
 	"injectors": {

@@ -19,6 +19,6 @@ public class ModDataComponents {
     }
 
     private static <T> DataComponentType<T> register(String path, UnaryOperator<DataComponentType.Builder<T>> builder) {
-        return Registry.register(BuiltInRegistries.DATA_COMPONENT_TYPE, Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, path), (builder.apply(DataComponentType.builder())).build());
+        return Registry.register(BuiltInRegistries.DATA_COMPONENT_TYPE, InstantFeedback.id(path), (builder.apply(DataComponentType.builder())).build());
     }
 }

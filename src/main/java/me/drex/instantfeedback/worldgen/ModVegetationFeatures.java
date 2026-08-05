@@ -39,11 +39,11 @@ import java.util.OptionalInt;
 
 public class ModVegetationFeatures {
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_PALE_PUMPKIN = ResourceKey.create(Registries.CONFIGURED_FEATURE, Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, "patch_pale_pumpkin"));
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PALE_VEGETATION = ResourceKey.create(Registries.CONFIGURED_FEATURE, Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, "pale_vegetation"));
-    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_PALE_OAK_CREAKING = ResourceKey.create(Registries.CONFIGURED_FEATURE, Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, "fallen_pale_oak_creaking"));
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PALE_GARDEN_VEGETATION = ResourceKey.create(Registries.CONFIGURED_FEATURE, Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, "pale_garden_vegetation"));
-    public static final ResourceKey<ConfiguredFeature<?, ?>> LEAF_LITTER = ResourceKey.create(Registries.CONFIGURED_FEATURE, Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, "leaf_litter"));
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_PALE_PUMPKIN = ResourceKey.create(Registries.CONFIGURED_FEATURE, InstantFeedback.id("patch_pale_pumpkin"));
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PALE_VEGETATION = ResourceKey.create(Registries.CONFIGURED_FEATURE, InstantFeedback.id("pale_vegetation"));
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_PALE_OAK_CREAKING = ResourceKey.create(Registries.CONFIGURED_FEATURE, InstantFeedback.id("fallen_pale_oak_creaking"));
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PALE_GARDEN_VEGETATION = ResourceKey.create(Registries.CONFIGURED_FEATURE, InstantFeedback.id("pale_garden_vegetation"));
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LEAF_LITTER = ResourceKey.create(Registries.CONFIGURED_FEATURE, InstantFeedback.id("leaf_litter"));
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> bootstrapContext) {
         HolderGetter<PlacedFeature> placedFeatures = bootstrapContext.lookup(Registries.PLACED_FEATURE);

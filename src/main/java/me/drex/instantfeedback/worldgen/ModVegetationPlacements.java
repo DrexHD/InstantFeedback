@@ -19,11 +19,11 @@ import java.util.List;
 
 public class ModVegetationPlacements {
 
-    public static final ResourceKey<PlacedFeature> PATCH_PALE_PUMPKIN = ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, "patch_pale_pumpkin"));
-    public static final ResourceKey<PlacedFeature> PALE_VEGETATION = ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, "pale_vegetation"));
-    public static final ResourceKey<PlacedFeature> FALLEN_PALE_OAK_CREAKING = ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, "fallen_pale_oak_creaking"));
-    public static final ResourceKey<PlacedFeature> PALE_GARDEN_VEGETATION = ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, "pale_garden_vegetation"));
-    public static final ResourceKey<PlacedFeature> PATCH_LEAF_LITTER = ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, "patch_leaf_litter"));
+    public static final ResourceKey<PlacedFeature> PATCH_PALE_PUMPKIN = ResourceKey.create(Registries.PLACED_FEATURE, InstantFeedback.id("patch_pale_pumpkin"));
+    public static final ResourceKey<PlacedFeature> PALE_VEGETATION = ResourceKey.create(Registries.PLACED_FEATURE, InstantFeedback.id("pale_vegetation"));
+    public static final ResourceKey<PlacedFeature> FALLEN_PALE_OAK_CREAKING = ResourceKey.create(Registries.PLACED_FEATURE, InstantFeedback.id("fallen_pale_oak_creaking"));
+    public static final ResourceKey<PlacedFeature> PALE_GARDEN_VEGETATION = ResourceKey.create(Registries.PLACED_FEATURE, InstantFeedback.id("pale_garden_vegetation"));
+    public static final ResourceKey<PlacedFeature> PATCH_LEAF_LITTER = ResourceKey.create(Registries.PLACED_FEATURE, InstantFeedback.id("patch_leaf_litter"));
 
     public static void bootstrap(BootstrapContext<PlacedFeature> bootstrapContext) {
         HolderGetter<ConfiguredFeature<?, ?>> holderGetter = bootstrapContext.lookup(Registries.CONFIGURED_FEATURE);

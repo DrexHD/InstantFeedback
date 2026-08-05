@@ -1,5 +1,6 @@
 package me.drex.instantfeedback.entity;
 
+import me.drex.instantfeedback.InstantFeedback;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBiomeTags;
 import net.minecraft.core.ClientAsset;
 import net.minecraft.core.registries.Registries;
@@ -11,20 +12,18 @@ import net.minecraft.world.entity.variant.BiomeCheck;
 import net.minecraft.world.entity.variant.ModelAndTexture;
 import net.minecraft.world.entity.variant.SpawnPrioritySelectors;
 
-import static me.drex.instantfeedback.InstantFeedback.MOD_ID;
-
 public class ModPigVariants {
     public static final ResourceKey<PigVariant> MUDDY = createKey("muddy");
 
     private static ResourceKey<PigVariant> createKey(String path) {
-        return ResourceKey.create(Registries.PIG_VARIANT, Identifier.fromNamespaceAndPath(MOD_ID, path));
+        return ResourceKey.create(Registries.PIG_VARIANT, InstantFeedback.id(path));
     }
 
     public static void bootstrap(BootstrapContext<PigVariant> bootstrapContext) {
         var holderSet = bootstrapContext.lookup(Registries.BIOME).getOrThrow(ConventionalBiomeTags.IS_SWAMP);
         var spawnPrioritySelectors = SpawnPrioritySelectors.single(new BiomeCheck(holderSet), 1);
-        Identifier textureId = Identifier.fromNamespaceAndPath(MOD_ID, "entity/pig/muddy_pig");
-        Identifier babyTextureId = Identifier.fromNamespaceAndPath(MOD_ID, "entity/pig/muddy_pig_baby");
+        Identifier textureId = InstantFeedback.id("entity/pig/muddy_pig");
+        Identifier babyTextureId = InstantFeedback.id("entity/pig/muddy_pig_baby");
 
         bootstrapContext.register(ModPigVariants.MUDDY, new PigVariant(new ModelAndTexture<>(PigVariant.ModelType.NORMAL, textureId), new ClientAsset.ResourceTexture(babyTextureId), spawnPrioritySelectors));
     }

@@ -14,6 +14,6 @@ public class ModBlockTags {
 
 
     private static TagKey<Block> create(String string) {
-        return TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(InstantFeedback.MOD_ID, string));
+        return TagKey.create(Registries.BLOCK, InstantFeedback.id(string));
     }
 }

@@ -49,20 +49,22 @@ public class InstantFeedback implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
     public static final SimpleParticleType CREAKING_EYES = FabricParticleTypes.simple();
+    public static final SimpleParticleType GOLDEN_DANDELION = FabricParticleTypes.simple();
     public static final ParticleType<ColorParticleOption> TINTED_NEEDLES = FabricParticleTypes.complex(ColorParticleOption::codec, ColorParticleOption::streamCodec);
-    public static final TrunkPlacerType<FallenDarkOakTrunkPlacer> FALLEN_DARK_OAK_TRUNK_PLACER = Registry.register(BuiltInRegistries.TRUNK_PLACER_TYPE, Identifier.fromNamespaceAndPath(MOD_ID, "fallen_dark_oak_trunk_placer"), new TrunkPlacerType<>(FallenDarkOakTrunkPlacer.CODEC));
-
+    
+    public static final TrunkPlacerType<FallenDarkOakTrunkPlacer> FALLEN_DARK_OAK_TRUNK_PLACER = Registry.register(BuiltInRegistries.TRUNK_PLACER_TYPE, id("fallen_dark_oak_trunk_placer"), new TrunkPlacerType<>(FallenDarkOakTrunkPlacer.CODEC));
 
     @Override
     public void onInitialize() {
         ConfigManager.load();
-        Registry.register(BuiltInRegistries.PARTICLE_TYPE, Identifier.fromNamespaceAndPath(MOD_ID, "creaking_eyes"), CREAKING_EYES);
-        Registry.register(BuiltInRegistries.PARTICLE_TYPE, Identifier.fromNamespaceAndPath(MOD_ID, "tinted_needles"), TINTED_NEEDLES);
+        Registry.register(BuiltInRegistries.PARTICLE_TYPE, id("creaking_eyes"), CREAKING_EYES);
+        Registry.register(BuiltInRegistries.PARTICLE_TYPE, id("golden_dandelion"), GOLDEN_DANDELION);
+        Registry.register(BuiltInRegistries.PARTICLE_TYPE, id("tinted_needles"), TINTED_NEEDLES);
         ModBlocks.initialize();
         ModItems.initialize();
         ModDataComponents.initialize();
         if (ConfigManager.config().theGardenAwakensRemoveMobSpawn) {
-            BiomeModifications.create(Identifier.fromNamespaceAndPath(MOD_ID, "pale_garden_remove_spawn"))
+            BiomeModifications.create(id("pale_garden_remove_spawn"))
                 .add(ModificationPhase.REMOVALS, context -> context.getBiomeKey() == Biomes.PALE_GARDEN, context -> {
                     context.getMobSpawnSettings().clearSpawns();
                 });
@@ -73,7 +75,7 @@ public class InstantFeedback implements ModInitializer {
                 GenerationStep.Decoration.VEGETAL_DECORATION,
                 ModVegetationPlacements.PATCH_LEAF_LITTER
             );
-            BiomeModifications.create(Identifier.fromNamespaceAndPath(MOD_ID, "pale_garden_replace_vegetation"))
+            BiomeModifications.create(id("pale_garden_replace_vegetation"))
                 .add(ModificationPhase.REPLACEMENTS, context -> context.getBiomeKey() == Biomes.PALE_GARDEN, context -> {
                     context.getGenerationSettings().removeFeature(VegetationPlacements.PALE_GARDEN_VEGETATION);
                     context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModVegetationPlacements.PALE_GARDEN_VEGETATION);
@@ -91,7 +93,7 @@ public class InstantFeedback implements ModInitializer {
         }
 
         if (ConfigManager.config().theGardenAwakensFog) {
-            BiomeModifications.create(Identifier.fromNamespaceAndPath(MOD_ID, "pale_garden_environment_fog"))
+            BiomeModifications.create(id("pale_garden_environment_fog"))
                 .add(ModificationPhase.ADDITIONS, context -> context.getBiomeKey() == Biomes.PALE_GARDEN, context -> {
                     context.getAttributes().setModifier(EnvironmentAttributes.FOG_END_DISTANCE, FloatModifier.MULTIPLY, 1 / 16f);
                 });
