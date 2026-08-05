@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": "minecraft:stick",
+    "S": "minecraft:potent_sulfur",
+    "X": [
+      "minecraft:coal",
+      "minecraft:charcoal"
+    ]
+  },
+  "pattern": [
+    "X",
+    "#",
+    "S"
+  ],
+  "result": {
+    "count": 4,
+    "id": "instantfeedback:sulfur_torch"
+  }
+}

@@ -50,6 +50,7 @@ public class InstantFeedback implements ModInitializer {
 
     public static final SimpleParticleType CREAKING_EYES = FabricParticleTypes.simple();
     public static final SimpleParticleType GOLDEN_DANDELION = FabricParticleTypes.simple();
+    public static final SimpleParticleType SULFUR_FLAME = FabricParticleTypes.simple();
     public static final ParticleType<ColorParticleOption> TINTED_NEEDLES = FabricParticleTypes.complex(ColorParticleOption::codec, ColorParticleOption::streamCodec);
     
     public static final TrunkPlacerType<FallenDarkOakTrunkPlacer> FALLEN_DARK_OAK_TRUNK_PLACER = Registry.register(BuiltInRegistries.TRUNK_PLACER_TYPE, id("fallen_dark_oak_trunk_placer"), new TrunkPlacerType<>(FallenDarkOakTrunkPlacer.CODEC));
@@ -59,6 +60,7 @@ public class InstantFeedback implements ModInitializer {
         ConfigManager.load();
         Registry.register(BuiltInRegistries.PARTICLE_TYPE, id("creaking_eyes"), CREAKING_EYES);
         Registry.register(BuiltInRegistries.PARTICLE_TYPE, id("golden_dandelion"), GOLDEN_DANDELION);
+        Registry.register(BuiltInRegistries.PARTICLE_TYPE, id("sulfur_flame"), SULFUR_FLAME);
         Registry.register(BuiltInRegistries.PARTICLE_TYPE, id("tinted_needles"), TINTED_NEEDLES);
         ModBlocks.initialize();
         ModItems.initialize();

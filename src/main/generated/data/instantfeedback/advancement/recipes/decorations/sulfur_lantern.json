@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sulfur_torch": {
+      "conditions": {
+        "items": [
+          {
+            "items": "instantfeedback:sulfur_torch"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "instantfeedback:sulfur_lantern"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_sulfur_torch"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "instantfeedback:sulfur_lantern"
+    ]
+  }
+}

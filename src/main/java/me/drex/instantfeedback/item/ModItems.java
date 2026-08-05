@@ -11,6 +11,8 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.StandingAndWallBlockItem;
+import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
@@ -25,6 +27,13 @@ public class ModItems {
     public static final Item PALE_BUSH = registerBlock(ModBlockItemIds.PALE_BUSH, ModBlocks.PALE_BUSH);
     public static final Item TALL_PALE_BUSH = registerBlock(ModBlockItemIds.TALL_PALE_BUSH, ModBlocks.TALL_PALE_BUSH);
     public static final Item CERULEAN_FROGLIGHT = registerBlock(ModBlockItemIds.CERULEAN_FROGLIGHT, ModBlocks.CERULEAN_FROGLIGHT);
+    public static final Item SULFUR_TORCH = registerBlock(
+        ModBlockItemIds.SULFUR_TORCH,
+        ModBlocks.SULFUR_TORCH,
+        (block, properties) -> new StandingAndWallBlockItem(block, ModBlocks.SULFUR_WALL_TORCH, Direction.DOWN, properties)
+    );
+    public static final Item SULFUR_LANTERN = registerBlock(ModBlockItemIds.SULFUR_LANTERN, ModBlocks.SULFUR_LANTERN);
+    public static final Item SULFUR_CAMPFIRE = registerBlock(ModBlockItemIds.SULFUR_CAMPFIRE, ModBlocks.SULFUR_CAMPFIRE);
 
     public static void initialize() {
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.NATURAL_BLOCKS)
@@ -39,6 +48,9 @@ public class ModItems {
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS)
                 .register((itemGroup) -> {
                     itemGroup.insertAfter(Blocks.VERDANT_FROGLIGHT, CERULEAN_FROGLIGHT);
+                    itemGroup.insertAfter(Items.SOUL_TORCH, SULFUR_TORCH);
+                    itemGroup.insertAfter(Items.SOUL_LANTERN, SULFUR_LANTERN);
+                    itemGroup.insertAfter(Items.SOUL_CAMPFIRE, SULFUR_CAMPFIRE);
                 });
     }
 

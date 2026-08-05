@@ -7,6 +7,9 @@ import net.minecraft.world.level.block.Block;
 
 public class ModBlockIds {
 
+    public static final ResourceKey<Block> SULFUR_WALL_TORCH = create("sulfur_wall_torch");
+    public static final ResourceKey<Block> SULFUR_FIRE = create("sulfur_fire");
+
     public static final ResourceKey<Block> POTTED_PALE_BUSH = create("potted_pale_bush");
     public static final ResourceKey<Block> POTTED_TALL_PALE_BUSH = create("potted_tall_pale_bush");
     public static final ResourceKey<Block> POTTED_PALE_ROSE = create("potted_pale_rose");

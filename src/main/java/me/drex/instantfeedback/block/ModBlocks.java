@@ -1,5 +1,6 @@
 package me.drex.instantfeedback.block;
 
+import me.drex.instantfeedback.InstantFeedback;
 import me.drex.instantfeedback.references.ModBlockIds;
 import me.drex.instantfeedback.references.ModBlockItemIds;
 import net.minecraft.core.Registry;
@@ -15,8 +16,39 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 
 import java.util.function.Function;
+import net.minecraft.world.level.block.entity.BlockEntityTypes;
 
 public class ModBlocks {
+
+    public static final Block SULFUR_TORCH = register(
+        ModBlockItemIds.SULFUR_TORCH,
+        properties -> new TorchBlock(InstantFeedback.SULFUR_FLAME, properties),
+        BlockBehaviour.Properties.ofFullCopy(Blocks.SOUL_TORCH)
+    );
+
+    public static final Block SULFUR_WALL_TORCH = register(
+        ModBlockIds.SULFUR_WALL_TORCH,
+        properties -> new WallTorchBlock(InstantFeedback.SULFUR_FLAME, properties),
+        BlockBehaviour.Properties.ofFullCopy(Blocks.SOUL_WALL_TORCH)
+    );
+
+    public static final Block SULFUR_LANTERN = register(
+        ModBlockItemIds.SULFUR_LANTERN,
+        LanternBlock::new,
+        BlockBehaviour.Properties.ofFullCopy(Blocks.SOUL_LANTERN)
+    );
+
+    public static final Block SULFUR_CAMPFIRE = register(
+        ModBlockItemIds.SULFUR_CAMPFIRE,
+        properties -> new CampfireBlock(true, 2, properties),
+        BlockBehaviour.Properties.ofFullCopy(Blocks.SOUL_CAMPFIRE)
+    );
+
+    public static final Block SULFUR_FIRE = register(
+        ModBlockIds.SULFUR_FIRE,
+        SulfurFireBlock::new,
+        BlockBehaviour.Properties.ofFullCopy(Blocks.SOUL_FIRE)
+    );
 
     public static final Block PALE_PUMPKIN = register(
         ModBlockItemIds.PALE_PUMPKIN,
@@ -117,6 +149,7 @@ public class ModBlocks {
         properties -> new FlowerPotBlock(Blocks.PITCHER_PLANT, properties), Blocks.flowerPotProperties());
 
     public static void initialize() {
+        BlockEntityTypes.CAMPFIRE.addValidBlock(SULFUR_CAMPFIRE);
     }
 
     public static Block register(ResourceKey<Block> resourceKey, Function<BlockBehaviour.Properties, Block> function, BlockBehaviour.Properties properties) {

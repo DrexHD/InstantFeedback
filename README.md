@@ -5,6 +5,7 @@ A fabric mod implementing features requested on minecraft feedback pages!
 Feedback: [Chaos Cubed](https://feedback.minecraft.net/hc/en-us/community/topics/44479219790861-Chaos-Cubed)
 
 - Added lava geysers
+- Added sulfur torch, lantern, campfire and fire
 
 # Tiny Takeover
 

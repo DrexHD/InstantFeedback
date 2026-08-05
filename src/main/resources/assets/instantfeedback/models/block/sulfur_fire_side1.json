@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_fire_side",
+  "textures": {
+    "fire": "instantfeedback:block/sulfur_fire_1"
+  }
+}

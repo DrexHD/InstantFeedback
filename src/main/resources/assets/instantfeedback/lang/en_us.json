@@ -16,5 +16,10 @@
   "block.instantfeedback.potted_peony": "Potted Peony",
   "block.instantfeedback.potted_pitcher_plant": "Potted Pitcher Plant",
   "block.instantfeedback.potted_rose_bush": "Potted Rose Bush",
-  "block.instantfeedback.potted_sunflower": "Potted Sunflower"
+  "block.instantfeedback.potted_sunflower": "Potted Sunflower",
+  "block.instantfeedback.sulfur_torch": "Sulfur Torch",
+  "block.instantfeedback.sulfur_wall_torch": "Sulfur Wall Torch",
+  "block.instantfeedback.sulfur_lantern": "Sulfur Lantern",
+  "block.instantfeedback.sulfur_campfire": "Sulfur Campfire",
+  "block.instantfeedback.sulfur_fire": "Sulfur Fire"
 }
