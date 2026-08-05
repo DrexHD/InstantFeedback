@@ -6,7 +6,10 @@ Feedback: [Chaos Cubed](https://feedback.minecraft.net/hc/en-us/community/topics
 
 - Added lava geysers
 - Added sulfur torch, lantern, campfire and fire
-- Added gunpowder recipe
+- Added gunpowder recipe 
+
+![chaos cubed showcase](https://cdn.modrinth.com/data/pcDsJNzK/images/ee682df53ff06a0c06884f45ba75abdcd5da8cda.png)
+
 
 # Tiny Takeover
 
@@ -16,6 +19,9 @@ Feedback: [Tiny Takeover](https://feedback.minecraft.net/hc/en-us/community/topi
 - Sniffers can now dig out golden dandelions
 - Golden dandelion now emit golden particles
 - Baby mobs now follow players holding golden dandelion when their age is not locked
+
+![tiny takeover showcase](https://cdn.modrinth.com/data/pcDsJNzK/images/3e41660455d967e57de45c9f64874d6bee338db2.png)
+
 
 # Chase the Skies
 
