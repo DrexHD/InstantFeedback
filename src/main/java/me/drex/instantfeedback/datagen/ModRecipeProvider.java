@@ -58,6 +58,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     .pattern("LLL")
                     .unlockedBy("has_potent_sulfur", has(Blocks.POTENT_SULFUR))
                     .save(output);
+
+                shapeless(RecipeCategory.MISC, Items.GUNPOWDER, 2)
+                    .requires(Items.POTENT_SULFUR)
+                    .requires(Items.CHARCOAL, 2)
+                    .unlockedBy("has_potent_sulfur", has(Blocks.POTENT_SULFUR))
+                    .save(output);
             }
         };
     }

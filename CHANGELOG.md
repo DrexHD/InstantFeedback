@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Baby mobs follow players holding golden dandelion when their age is not locked
 - Lava geysers
 - Sulfur torch, lantern, campfire and fire
+- Gunpowder recipe
 
 ## [3.2.1] - 2026-03-26
 ### Fixed

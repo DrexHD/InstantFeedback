@@ -6,6 +6,7 @@ Feedback: [Chaos Cubed](https://feedback.minecraft.net/hc/en-us/community/topics
 
 - Added lava geysers
 - Added sulfur torch, lantern, campfire and fire
+- Added gunpowder recipe
 
 # Tiny Takeover
 
