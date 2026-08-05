@@ -1,5 +1,11 @@
 A fabric mod implementing features requested on minecraft feedback pages!
 
+# Chaos Cubed
+
+Feedback: [Chaos Cubed](https://feedback.minecraft.net/hc/en-us/community/topics/44479219790861-Chaos-Cubed)
+
+- Added lava geysers
+
 # Tiny Takeover
 
 Feedback: [Tiny Takeover](https://feedback.minecraft.net/hc/en-us/community/topics/42999231628301-Tiny-Takeover)

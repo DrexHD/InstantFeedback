@@ -1,6 +1,9 @@
 package me.drex.instantfeedback.config;
 
 public class Config {
+    // Chaos Cubed
+    public boolean chaosCubedLavaGeysers = true;
+
     // Tiny Takeover
     public boolean tinyTakeoverSnifferDigGoldenDandelion = true;
     public boolean tinyTakeoverClockUtility = true;

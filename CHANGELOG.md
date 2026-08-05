@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - More utility for the clock
 - Golden dandelion particles
 - Baby mobs follow players holding golden dandelion when their age is not locked
+- Lava geysers
 
 ## [3.2.1] - 2026-03-26
 ### Fixed

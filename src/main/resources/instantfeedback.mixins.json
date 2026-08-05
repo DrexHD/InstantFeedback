@@ -13,6 +13,8 @@
 		"clock.ItemFrameMixin",
 		"clock.ItemsMixin",
 		"flying_speed.MobEffectsMixin",
+		"geyser.PotentSulfurBlockEntityMixin",
+		"geyser.PotentSulfurBlockMixin",
 		"golden_dandelion.particle.BlocksMixin",
 		"golden_dandelion.tempt.TemptGoalMixin",
 		"snow_golem.SnowGolemMixin"
