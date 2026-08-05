@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Sniffers can now dig out golden dandelions
+
 ## [3.2.1] - 2026-03-26
 ### Fixed
 - Feature order cycle found crash

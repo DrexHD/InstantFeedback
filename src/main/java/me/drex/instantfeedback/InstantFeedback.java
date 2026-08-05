@@ -30,9 +30,11 @@ import net.minecraft.world.attribute.modifier.FloatModifier;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.animal.frog.FrogVariant;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
+import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.DamageSourceCondition;
@@ -118,6 +120,10 @@ public class InstantFeedback implements ModInitializer {
                     );
                 });
             }
+        });
+        LootTableEvents.MODIFY.register((key, tableBuilder, source, registries) -> {
+            if (key != BuiltInLootTables.SNIFFER_DIGGING || !ConfigManager.config().tinyTakeoverSnifferDigGoldenDandelion) return;
+            tableBuilder.modifyPools(builder -> builder.add(LootItem.lootTableItem(Items.GOLDEN_DANDELION)));
         });
 
         ModCauldronInteraction.bootstrap();
