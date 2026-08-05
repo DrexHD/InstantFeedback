@@ -6,6 +6,8 @@ Feedback: [Tiny Takeover](https://feedback.minecraft.net/hc/en-us/community/topi
 
 - Right-click a clock to save the time and put it into an item frame to get a redstone signal every day at that time
 - Sniffers can now dig out golden dandelions
+- Golden dandelion now emit golden particles
+- Baby mobs now follow players holding golden dandelion when their age is not locked
 
 # Chase the Skies
 

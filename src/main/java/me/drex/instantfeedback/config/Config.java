@@ -5,6 +5,7 @@ public class Config {
     public boolean tinyTakeoverSnifferDigGoldenDandelion = true;
     public boolean tinyTakeoverClockUtility = true;
     public boolean tinyTakeoverGoldenDandelionParticles = true;
+    public boolean tinyTakeoverGoldenDandelionTemptBabies = true;
 
     // Chase the Skies
     public boolean chaseTheSkiesHappyGhastSpeed = true;

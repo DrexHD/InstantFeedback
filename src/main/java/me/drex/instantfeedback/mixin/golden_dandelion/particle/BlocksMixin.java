@@ -1,4 +1,4 @@
-package me.drex.instantfeedback.mixin.golden_dandelion;
+package me.drex.instantfeedback.mixin.golden_dandelion.particle;
 
 import com.llamalad7.mixinextras.expression.Definition;
 import com.llamalad7.mixinextras.expression.Expression;
