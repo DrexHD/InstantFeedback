@@ -18,7 +18,8 @@
 		"golden_dandelion.particle.BlocksMixin",
 		"golden_dandelion.tempt.TemptGoalMixin",
 		"snow_golem.SnowGolemMixin",
-		"sulfur_fire.BaseFireBlockMixin"
+		"sulfur.campfire.CampfireBlockEntityMixin",
+		"sulfur.fire.BaseFireBlockMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

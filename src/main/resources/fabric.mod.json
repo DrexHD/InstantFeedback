@@ -7,6 +7,11 @@
 	"authors": [
 		"Drex"
 	],
+	"contributors": [
+		"cassiancc",
+		"Ko3leta",
+		"gabrtzweb"
+	],
 	"license": "MIT",
 	"icon": "assets/instantfeedback/icon.png",
 	"contact": {

@@ -1,4 +1,4 @@
-package me.drex.instantfeedback.mixin.sulfur_fire;
+package me.drex.instantfeedback.mixin.sulfur.fire;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.llamalad7.mixinextras.sugar.Local;

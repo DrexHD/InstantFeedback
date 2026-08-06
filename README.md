@@ -5,7 +5,7 @@ A fabric mod implementing features requested on minecraft feedback pages!
 Feedback: [Chaos Cubed](https://feedback.minecraft.net/hc/en-us/community/topics/44479219790861-Chaos-Cubed)
 
 - Added lava geysers
-- Added sulfur torch, lantern, campfire and fire
+- Added sulfur torch, lantern, campfire (cooked food causes nausea) and fire
 - Added gunpowder recipe 
 
 ![chaos cubed showcase](https://cdn.modrinth.com/data/pcDsJNzK/images/ee682df53ff06a0c06884f45ba75abdcd5da8cda.png)

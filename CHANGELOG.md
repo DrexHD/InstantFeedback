@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Sulfur campfire cooked food causes nausea
+
 ### Fixed
 - Sulfur campfire not being light able
 
