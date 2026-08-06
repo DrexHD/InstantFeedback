@@ -1,6 +1,7 @@
 package me.drex.instantfeedback;
 
 import me.drex.instantfeedback.block.ModBlocks;
+import me.drex.instantfeedback.config.ConfigEnabledResourceCondition;
 import me.drex.instantfeedback.config.ConfigManager;
 import me.drex.instantfeedback.entity.ModFrogVariants;
 import me.drex.instantfeedback.item.ModCauldronInteraction;
@@ -13,6 +14,7 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
+import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
 import net.minecraft.advancements.predicates.DataComponentMatchers;
 import net.minecraft.advancements.predicates.entity.EntityPredicate;
 import net.minecraft.core.HolderGetter;
@@ -65,6 +67,7 @@ public class InstantFeedback implements ModInitializer {
         ModBlocks.initialize();
         ModItems.initialize();
         ModDataComponents.initialize();
+        ResourceConditions.register(ConfigEnabledResourceCondition.TYPE);
         if (ConfigManager.config().theGardenAwakensRemoveMobSpawn) {
             BiomeModifications.create(id("pale_garden_remove_spawn"))
                 .add(ModificationPhase.REMOVALS, context -> context.getBiomeKey() == Biomes.PALE_GARDEN, context -> {

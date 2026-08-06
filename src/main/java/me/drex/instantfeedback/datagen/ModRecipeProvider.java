@@ -1,6 +1,7 @@
 package me.drex.instantfeedback.datagen;
 
 import me.drex.instantfeedback.block.ModBlocks;
+import me.drex.instantfeedback.config.ConfigEnabledResourceCondition;
 import me.drex.instantfeedback.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -38,7 +39,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     .pattern("#")
                     .pattern("S")
                     .unlockedBy("has_potent_sulfur", has(Blocks.POTENT_SULFUR))
-                    .save(output);
+                    .save(conditional("chaosCubedSulfurFireBlockRecipes"));
 
                 shaped(RecipeCategory.DECORATIONS, ModItems.SULFUR_LANTERN)
                     .define('#', ModItems.SULFUR_TORCH)
@@ -47,7 +48,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     .pattern("X#X")
                     .pattern("XXX")
                     .unlockedBy("has_sulfur_torch", has(ModItems.SULFUR_TORCH))
-                    .save(output);
+                    .save(conditional("chaosCubedSulfurFireBlockRecipes"));
 
                 shaped(RecipeCategory.DECORATIONS, ModItems.SULFUR_CAMPFIRE)
                     .define('#', Blocks.POTENT_SULFUR)
@@ -57,13 +58,17 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     .pattern("S#S")
                     .pattern("LLL")
                     .unlockedBy("has_potent_sulfur", has(Blocks.POTENT_SULFUR))
-                    .save(output);
+                    .save(conditional("chaosCubedSulfurFireBlockRecipes"));
 
                 shapeless(RecipeCategory.MISC, Items.GUNPOWDER, 2)
                     .requires(Items.POTENT_SULFUR)
                     .requires(Items.CHARCOAL, 2)
                     .unlockedBy("has_potent_sulfur", has(Blocks.POTENT_SULFUR))
-                    .save(output);
+                    .save(conditional("chaosCubedGunpowerRecipe"));
+            }
+
+            public RecipeOutput conditional(String configOption) {
+                return withConditions(output, new ConfigEnabledResourceCondition(configOption));
             }
         };
     }

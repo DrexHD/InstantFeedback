@@ -3,6 +3,8 @@ package me.drex.instantfeedback.config;
 public class Config {
     // Chaos Cubed
     public boolean chaosCubedLavaGeysers = true;
+    public boolean chaosCubedGunpowerRecipe = true;
+    public boolean chaosCubedSulfurFireBlockRecipes = true;
 
     // Tiny Takeover
     public boolean tinyTakeoverSnifferDigGoldenDandelion = true;

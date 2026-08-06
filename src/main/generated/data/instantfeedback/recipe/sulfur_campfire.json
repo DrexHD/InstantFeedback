@@ -1,4 +1,10 @@
 {
+  "fabric:load_conditions": [
+    {
+      "condition": "instantfeedback:config",
+      "options": "chaosCubedSulfurFireBlockRecipes"
+    }
+  ],
   "type": "minecraft:crafting_shaped",
   "key": {
     "#": "minecraft:potent_sulfur",
