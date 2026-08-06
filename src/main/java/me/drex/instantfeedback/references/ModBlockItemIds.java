@@ -14,6 +14,7 @@ public class ModBlockItemIds {
     public static final BlockItemId SULFUR_TORCH = create("sulfur_torch");
     public static final BlockItemId SULFUR_LANTERN = create("sulfur_lantern");
     public static final BlockItemId SULFUR_CAMPFIRE = create("sulfur_campfire");
+    public static final BlockItemId GLOWING_VINES = create("glowing_vines");
 
     private static BlockItemId create(String name) {
         final Identifier id = InstantFeedback.id(name);

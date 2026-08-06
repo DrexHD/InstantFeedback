@@ -34,6 +34,7 @@ public class ModItems {
     );
     public static final Item SULFUR_LANTERN = registerBlock(ModBlockItemIds.SULFUR_LANTERN, ModBlocks.SULFUR_LANTERN);
     public static final Item SULFUR_CAMPFIRE = registerBlock(ModBlockItemIds.SULFUR_CAMPFIRE, ModBlocks.SULFUR_CAMPFIRE);
+    public static final Item GLOWING_VINES = registerBlock(ModBlockItemIds.GLOWING_VINES, ModBlocks.GLOWING_VINES);
 
     public static void initialize() {
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.NATURAL_BLOCKS)
@@ -44,6 +45,7 @@ public class ModItems {
                     itemGroup.insertAfter(Items.PALE_HANGING_MOSS, PALE_BUSH);
                     itemGroup.insertAfter(PALE_BUSH, TALL_PALE_BUSH);
                     itemGroup.insertAfter(Blocks.VERDANT_FROGLIGHT, CERULEAN_FROGLIGHT);
+                    itemGroup.insertAfter(Blocks.VINE, GLOWING_VINES);
                 });
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS)
                 .register((itemGroup) -> {

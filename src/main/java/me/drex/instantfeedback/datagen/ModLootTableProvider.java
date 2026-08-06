@@ -4,6 +4,7 @@ import me.drex.instantfeedback.block.ModBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootSubProvider;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 
@@ -26,6 +27,7 @@ public class ModLootTableProvider extends FabricBlockLootSubProvider {
         this.add(ModBlocks.SULFUR_WALL_TORCH, block -> this.createSingleItemTable(ModBlocks.SULFUR_TORCH));
         this.dropSelf(ModBlocks.SULFUR_LANTERN);
         this.dropSelf(ModBlocks.SULFUR_CAMPFIRE);
+        this.add(ModBlocks.GLOWING_VINES, block -> this.createMultifaceBlockDrops(block, this.hasShears()));
         this.dropPottedContents(ModBlocks.POTTED_PALE_BUSH);
         this.dropPottedContents(ModBlocks.POTTED_TALL_PALE_BUSH);
         this.dropPottedContents(ModBlocks.POTTED_PALE_ROSE);

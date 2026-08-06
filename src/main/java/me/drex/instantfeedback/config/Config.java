@@ -24,4 +24,7 @@ public class Config {
     public boolean theGardenAwakensAmbientParticles = true;
     public boolean theGardenAwakensRemoveMobSpawn = true;
     public boolean theGardenAwakensBuffCreaking = true;
+
+    // Trails & Tales
+    public boolean trailsTalesSnifferDigGlowingVines = true;
 }

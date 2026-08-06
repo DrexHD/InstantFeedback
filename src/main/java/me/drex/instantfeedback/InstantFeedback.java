@@ -128,8 +128,13 @@ public class InstantFeedback implements ModInitializer {
             }
         });
         LootTableEvents.MODIFY.register((key, tableBuilder, source, registries) -> {
-            if (key != BuiltInLootTables.SNIFFER_DIGGING || !ConfigManager.config().tinyTakeoverSnifferDigGoldenDandelion) return;
-            tableBuilder.modifyPools(builder -> builder.add(LootItem.lootTableItem(Items.GOLDEN_DANDELION)));
+            if (key != BuiltInLootTables.SNIFFER_DIGGING) return;
+            if (ConfigManager.config().tinyTakeoverSnifferDigGoldenDandelion) {
+                tableBuilder.modifyPools(builder -> builder.add(LootItem.lootTableItem(Items.GOLDEN_DANDELION)));
+            }
+            if (ConfigManager.config().trailsTalesSnifferDigGlowingVines) {
+                tableBuilder.modifyPools(builder -> builder.add(LootItem.lootTableItem(ModItems.GLOWING_VINES)));
+            }
         });
 
         ModCauldronInteraction.bootstrap();

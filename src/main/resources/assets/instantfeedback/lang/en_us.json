@@ -21,5 +21,6 @@
   "block.instantfeedback.sulfur_wall_torch": "Sulfur Wall Torch",
   "block.instantfeedback.sulfur_lantern": "Sulfur Lantern",
   "block.instantfeedback.sulfur_campfire": "Sulfur Campfire",
-  "block.instantfeedback.sulfur_fire": "Sulfur Fire"
+  "block.instantfeedback.sulfur_fire": "Sulfur Fire",
+  "block.instantfeedback.glowing_vines": "Glowing Vines"
 }

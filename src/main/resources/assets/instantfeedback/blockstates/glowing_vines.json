@@ -1,0 +1,123 @@
+{
+	"multipart": [
+		{
+			"when": {
+				"north": "true"
+			},
+			"apply": [
+				{
+					"model": "instantfeedback:block/glowing_vines_0",
+					"uvlock": true
+				},
+				{
+					"model": "instantfeedback:block/glowing_vines_1",
+					"uvlock": true
+				},
+				{
+					"model": "instantfeedback:block/glowing_vines_growth",
+					"uvlock": true
+				}
+			]
+		},
+		{
+			"when": {
+				"east": "true"
+			},
+			"apply": [
+				{
+					"model": "instantfeedback:block/glowing_vines_0",
+					"uvlock": true,
+					"y": 90
+				},
+				{
+					"model": "instantfeedback:block/glowing_vines_1",
+					"uvlock": true,
+					"y": 90
+				},
+				{
+					"model": "instantfeedback:block/glowing_vines_growth",
+					"uvlock": true,
+					"y": 90
+				}
+			]
+		},
+		{
+			"when": {
+				"south": "true"
+			},
+			"apply": [
+				{
+					"model": "instantfeedback:block/glowing_vines_0",
+					"uvlock": true,
+					"y": 180
+				},
+				{
+					"model": "instantfeedback:block/glowing_vines_1",
+					"uvlock": true,
+					"y": 180
+				},
+				{
+					"model": "instantfeedback:block/glowing_vines_growth",
+					"uvlock": true,
+					"y": 180
+				}
+			]
+		},
+		{
+			"when": {
+				"west": "true"
+			},
+			"apply": [
+				{
+					"model": "instantfeedback:block/glowing_vines_0",
+					"uvlock": true,
+					"y": 270
+				},
+				{
+					"model": "instantfeedback:block/glowing_vines_1",
+					"uvlock": true,
+					"y": 270
+				},
+				{
+					"model": "instantfeedback:block/glowing_vines_growth",
+					"uvlock": true,
+					"y": 270
+				}
+			]
+		},
+		{
+			"when": {
+				"up": "true"
+			},
+			"apply": [
+				{
+					"model": "instantfeedback:block/glowing_vines_0",
+					"uvlock": true,
+					"x": 270
+				},
+				{
+					"model": "instantfeedback:block/glowing_vines_1",
+					"uvlock": true,
+					"x": 270
+				}
+			]
+		},
+		{
+			"when": {
+				"down": "true"
+			},
+			"apply": [
+				{
+					"model": "instantfeedback:block/glowing_vines_0",
+					"uvlock": true,
+					"x": 90
+				},
+				{
+					"model": "instantfeedback:block/glowing_vines_1",
+					"uvlock": true,
+					"x": 90
+				}
+			]
+		}
+	]
+}

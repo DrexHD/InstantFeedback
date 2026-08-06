@@ -35,7 +35,9 @@ public class ModBlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
         this.builder(BlockTags.SWORD_EFFICIENT)
             .add(ModBlockItemIds.PALE_PUMPKIN)
             .add(ModBlockItemIds.CARVED_PALE_PUMPKIN)
-            .add(ModBlockItemIds.PALE_BUSH, ModBlockItemIds.TALL_PALE_BUSH);
+            .add(ModBlockItemIds.PALE_BUSH, ModBlockItemIds.TALL_PALE_BUSH)
+            .add(ModBlockItemIds.GLOWING_VINES)
+        ;
 
         this.builder(BlockTags.BEE_ATTRACTIVE)
             .add(ModBlockItemIds.PALE_ROSE);
@@ -62,6 +64,12 @@ public class ModBlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
 
         this.builder(BlockTags.CAMPFIRES)
             .add(ModBlockItemIds.SULFUR_CAMPFIRE);
+
+        this.builder(BlockTags.SHEARS_MINOR_BREAKING_SPEED)
+            .add(ModBlockItemIds.GLOWING_VINES);
+
+        this.builder(BlockTags.INSIDE_STEP_SOUND_BLOCKS)
+            .add(ModBlockItemIds.GLOWING_VINES);
 
         var builder = this.builder(BlockTags.REPLACEABLE);
         wrapperLookup.lookupOrThrow(Registries.BLOCK)

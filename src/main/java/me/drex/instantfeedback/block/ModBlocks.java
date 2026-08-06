@@ -121,6 +121,20 @@ public class ModBlocks {
                     .lightLevel(blockStatex -> 15)
     );
 
+    public static final Block GLOWING_VINES = register(
+        ModBlockItemIds.GLOWING_VINES,
+        GlowLichenBlock::new,
+        BlockBehaviour.Properties.of()
+            .mapColor(MapColor.PLANT)
+            .replaceable()
+            .noCollision()
+            .strength(0.2F)
+            .sound(SoundType.VINE)
+            .lightLevel(GlowLichenBlock.emission(4))
+            .ignitedByLava()
+            .pushReaction(PushReaction.DESTROY)
+    );
+
     public static final Block POTTED_PALE_BUSH = register(ModBlockIds.POTTED_PALE_BUSH,
         properties -> new FlowerPotBlock(PALE_BUSH, properties), Blocks.flowerPotProperties());
 
