@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Sulfur campfire not being light able
+
 ## [4.0.0] - 2026-08-06
 ### Added
 - Sniffers can now dig out golden dandelions

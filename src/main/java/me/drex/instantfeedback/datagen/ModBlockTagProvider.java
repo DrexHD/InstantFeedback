@@ -60,6 +60,9 @@ public class ModBlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
         this.builder(ModBlockTags.LEAVES_NEEDLES)
             .add(BlockItemIds.SPRUCE_LEAVES);
 
+        this.builder(BlockTags.CAMPFIRES)
+            .add(ModBlockItemIds.SULFUR_CAMPFIRE);
+
         var builder = this.builder(BlockTags.REPLACEABLE);
         wrapperLookup.lookupOrThrow(Registries.BLOCK)
             .filterElements(block -> block.defaultBlockState().canBeReplaced())
